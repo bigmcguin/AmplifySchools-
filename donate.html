@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Donate | Amplify Schools</title>
+  <meta name="description" content="Make a one-off or monthly donation to Amplify Schools and help fund the resources and programs that students need most.">
+  <meta property="og:title" content="Donate to Amplify Schools">
+  <meta property="og:description" content="One-off or monthly, every donation backs a school community.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23b0400f'/%3E%3Crect x='14' y='30' width='8' height='16' rx='4' fill='%23fdf6f2'/%3E%3Crect x='28' y='22' width='8' height='24' rx='4' fill='%23fdf6f2'/%3E%3Crect x='42' y='14' width='8' height='32' rx='4' fill='%23fdf6f2'/%3E%3C/svg%3E">
+  <link rel="preload" href="assets/fonts/outfit-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/public-sans-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <nav class="nav container" aria-label="Main">
+      <a class="brand" href="index.html">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 64 64" fill="currentColor"><rect x="8" y="30" width="12" height="26" rx="6"/><rect x="26" y="18" width="12" height="38" rx="6"/><rect x="44" y="6" width="12" height="50" rx="6"/></svg>
+        </span>
+        Amplify Schools
+      </a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links">Menu</button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#programs">What we do</a></li>
+        <li><a href="index.html#impact">Impact</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+        <li class="nav-cta"><a class="btn btn-primary" href="donate.html" aria-current="page">Donate</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+
+    <section class="donate-intro container">
+      <h1>Back a school community.</h1>
+      <p class="lede">Your donation funds the resources, programs and support that students need most. Give once, or give monthly to provide steady support all year round.</p>
+    </section>
+
+    <section class="section container donate-layout">
+
+      <!-- ===== Donation widget ===== -->
+      <div class="donate-card">
+        <h2 class="visually-hidden">Choose your donation</h2>
+
+        <div class="freq-toggle" role="group" aria-label="Donation frequency">
+          <button type="button" data-freq="once" aria-pressed="true">One-off</button>
+          <button type="button" data-freq="monthly" aria-pressed="false">Monthly</button>
+        </div>
+
+        <div class="amount-grid" role="group" aria-label="Donation amount">
+          <button type="button" data-amount="35" aria-pressed="false">$35</button>
+          <button type="button" data-amount="75" aria-pressed="true">$75</button>
+          <button type="button" data-amount="150" aria-pressed="false">$150</button>
+        </div>
+
+        <div class="custom-amount">
+          <label for="custom-amount">Or enter your own amount</label>
+          <div class="field">
+            <span class="currency" aria-hidden="true">A$</span>
+            <input id="custom-amount" name="custom-amount" type="number" inputmode="decimal" min="1" step="1" autocomplete="off">
+          </div>
+          <p class="hint" id="custom-amount-hint">Whole dollars, minimum $1.</p>
+        </div>
+
+        <button type="button" class="btn btn-primary btn-lg donate-submit" id="donate-btn">
+          Donate
+        </button>
+
+        <p class="donate-note">
+          <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#icon-lock-simple"/></svg>
+          <span>Payments are processed securely by our payment provider. Card details never touch this website.</span>
+        </p>
+
+        <div class="donate-alert" id="donate-alert" role="status">
+          Online card payments are still being set up. In the meantime, please donate by bank transfer using the details on this page, or <a href="index.html#contact">contact us</a> and we will help you directly.
+        </div>
+      </div>
+
+      <!-- ===== Other ways to give ===== -->
+      <aside class="give-aside">
+        <h2>Other ways to give</h2>
+
+        <div class="give-item">
+          <h3><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#icon-bank"/></svg> Bank transfer</h3>
+          <p>Prefer a direct deposit? Use the details below and include your name as the reference so we can send you a receipt.</p>
+          <!-- EDIT ME: real account details -->
+          <p class="bank-details">
+            <span><strong>Account name:</strong> Amplify Schools</span>
+            <span><strong>BSB:</strong> 000-000</span>
+            <span><strong>Account number:</strong> 00000000</span>
+          </p>
+        </div>
+
+        <div class="give-item">
+          <h3><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#icon-repeat"/></svg> Workplace giving</h3>
+          <p>Many employers match staff donations. Ask your workplace about payroll giving, or introduce us and we will handle the rest.</p>
+        </div>
+
+        <div class="give-item">
+          <h3><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#icon-hand-heart"/></svg> Partner with us</h3>
+          <p>Businesses and community groups can sponsor a program or a school. <a href="index.html#contact">Get in touch</a> to talk about a partnership.</p>
+        </div>
+      </aside>
+
+    </section>
+
+    <!-- ===== FAQ ===== -->
+    <section class="section container">
+      <h2>Common questions</h2>
+      <div class="faq">
+        <details>
+          <summary>Is my donation tax deductible? <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#icon-caret-down"/></svg></summary>
+          <!-- EDIT ME: confirm your DGR status and update this answer -->
+          <p>Donations of $2 or more are tax deductible where an organisation has Deductible Gift Recipient (DGR) status. Please update this answer once your DGR status is confirmed, and we will issue a receipt for every donation.</p>
+        </details>
+        <details>
+          <summary>How is my donation used? <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#icon-caret-down"/></svg></summary>
+          <p>Donations fund classroom resources, student programs and community partnerships in the schools we support. We keep overheads low and direct every dollar to where school communities need it most.</p>
+        </details>
+        <details>
+          <summary>Can I cancel or change a monthly donation? <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#icon-caret-down"/></svg></summary>
+          <p>Yes, at any time. Use the link in your donation receipt email, or contact us and we will change or cancel it for you straight away.</p>
+        </details>
+        <details>
+          <summary>Will I get a receipt? <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#icon-caret-down"/></svg></summary>
+          <p>Yes. Card donations are receipted automatically by email. For bank transfers, include your name as the payment reference and email us so we know where to send your receipt.</p>
+        </details>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer" id="contact">
+    <div class="container footer-grid">
+      <div class="footer-about">
+        <a class="brand" href="index.html">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 64 64" fill="currentColor"><rect x="8" y="30" width="12" height="26" rx="6"/><rect x="26" y="18" width="12" height="38" rx="6"/><rect x="44" y="6" width="12" height="50" rx="6"/></svg>
+          </span>
+          Amplify Schools
+        </a>
+        <p>Backing school communities to give every student a stronger start.</p>
+        <div class="footer-social">
+          <a href="https://www.facebook.com/amplifyschool/" aria-label="Facebook"><svg class="icon"><use href="assets/icons.svg#icon-facebook-logo"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg class="icon"><use href="assets/icons.svg#icon-instagram-logo"/></svg></a>
+          <a href="#" aria-label="LinkedIn"><svg class="icon"><use href="assets/icons.svg#icon-linkedin-logo"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <h3>Explore</h3>
+        <ul>
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="index.html#programs">What we do</a></li>
+          <li><a href="index.html#impact">Impact</a></li>
+          <li><a href="donate.html">Donate</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Contact</h3>
+        <ul>
+          <li><a href="mailto:hello@amplifyschools.org">hello@amplifyschools.org</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container footer-legal">
+      <p>&copy; <span id="year">2026</span> Amplify Schools. All rights reserved.</p>
+      <p>ABN: add your ABN here</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
