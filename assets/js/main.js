@@ -61,6 +61,13 @@ if (navToggle && navLinks) {
     const open = navLinks.classList.toggle("open");
     navToggle.setAttribute("aria-expanded", String(open));
   });
+  // close the mobile menu when a navigation link is chosen
+  navLinks.addEventListener("click", (event) => {
+    if (event.target.closest("a")) {
+      navLinks.classList.remove("open");
+      navToggle.setAttribute("aria-expanded", "false");
+    }
+  });
 }
 
 /* ---------- Scroll reveal ---------- */
