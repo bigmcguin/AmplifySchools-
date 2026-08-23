@@ -22,12 +22,24 @@ When you change `styles.css` or `main.js`, bump the `?v=` number on their links 
 ```
 index.html          Homepage (hero, mission, programs, tiers, impact, team, CTA)
 donate.html         Donate page (donation widget, other ways to give, FAQ)
+register.html       School registration (application form + eligibility)
 assets/css/styles.css   All styling (light + dark mode, responsive)
-assets/js/main.js       Navigation, donation widget, PAYMENT_LINKS config
+assets/js/main.js       Navigation, donation widget, registration form,
+                        PAYMENT_LINKS and REGISTER_FORM_ENDPOINT config
 assets/img/             Logo and photos (from the site's image collection)
-assets/fonts/           Self-hosted fonts (Outfit + Public Sans)
+assets/fonts/           Self-hosted fonts (Archivo + Public Sans)
 assets/icons.svg        Icon sprite (Phosphor Icons, MIT licence)
 ```
+
+## School registration form
+
+`register.html` collects: school name, contact name, email, phone, instruments needed, and an authority confirmation. Because the site is static, the form posts to a hosted form service:
+
+1. Create a free account at [formspree.io](https://formspree.io) and add a new form (free tier is 50 submissions/month; Web3Forms is a free alternative).
+2. Copy the form endpoint (looks like `https://formspree.io/f/abcdwxyz`).
+3. Paste it into `REGISTER_FORM_ENDPOINT` at the top of `assets/js/main.js`.
+
+Submissions then arrive in your email inbox. Until the endpoint is set, applicants are shown a one-click email fallback instead, so nothing is broken in the meantime. A hidden honeypot field filters basic spam bots.
 
 ## Previewing locally
 
