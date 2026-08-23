@@ -9,28 +9,30 @@
   <meta property="og:description" content="Putting rock instruments into school music rooms.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="assets/img/hero-music-room.jpg">
-  <link rel="icon" type="image/png" href="assets/img/logo.png">
-  <link rel="preload" href="assets/fonts/outfit-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231c3e66'/%3E%3Ctext x='33' y='47' font-family='Arial, sans-serif' font-size='42' font-weight='800' font-style='italic' text-anchor='middle' fill='%234cc3d5'%3EA%3C/text%3E%3C/svg%3E">
+  <link rel="preload" href="assets/fonts/archivo-latin-wght-italic.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/public-sans-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/css/styles.css">
+  <script>document.documentElement.classList.add("js");</script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 
   <header class="site-header">
     <nav class="nav container" aria-label="Main">
-      <a class="brand" href="index.html">
-        <span class="brand-mark">
-          <img src="assets/img/logo.png" alt="" width="118" height="132">
+      <a class="brand" href="index.html" aria-label="Amplify Schools home">
+        <!-- Typographic wordmark matching the logo. Swap in the logo image file when available. -->
+        <span class="wordmark" aria-hidden="true">
+          <span class="wm-top">Amplify</span>
+          <span class="wm-bottom">Schools</span>
         </span>
-        Amplify Schools
       </a>
       <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links">Menu</button>
       <ul class="nav-links" id="nav-links">
         <li><a href="#about">About</a></li>
         <li><a href="#programs">What we do</a></li>
         <li><a href="#impact">Impact</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="#band">Meet the band</a></li>
         <li class="nav-cta"><a class="btn btn-primary" href="donate.html">Donate</a></li>
       </ul>
     </nav>
@@ -38,26 +40,24 @@
 
   <main id="main">
 
-    <!-- ===== Hero ===== -->
-    <section class="hero">
-      <div class="container hero-grid">
-        <div>
-          <h1>Putting rock instruments into school music rooms.</h1>
+    <!-- ===== Cinematic hero ===== -->
+    <section class="hero-cinema">
+      <img class="hero-bg" src="assets/img/hero-music-room.jpg" alt="" width="1024" height="768" fetchpriority="high">
+      <div class="container">
+        <div class="hero-content">
+          <h1>Putting rock instruments into <span class="accent-word">school music rooms.</span></h1>
           <p class="lede">We refurbish donated guitars, drums, keys and amps, then give them to school music programs.</p>
           <div class="hero-actions">
             <a class="btn btn-primary btn-lg" href="donate.html">Donate</a>
-            <a class="btn btn-ghost btn-lg" href="#programs">What we do</a>
+            <a class="btn btn-ghost-light btn-lg" href="#programs">What we do</a>
           </div>
-        </div>
-        <div class="hero-media">
-          <img src="assets/img/hero-music-room.jpg" alt="A school music room set up with electric guitars and a drum kit" width="1024" height="768" fetchpriority="high">
         </div>
       </div>
     </section>
 
     <!-- ===== Mission ===== -->
     <section class="mission section" id="about">
-      <div class="container mission-inner">
+      <div class="container mission-inner reveal">
         <h2>Why we exist</h2>
         <!-- EDIT ME: tune this to your official mission wording -->
         <p class="lede">Plenty of great instruments sit unused in garages and spare rooms while school music programs make do with tired, broken gear. Amplify Schools bridges that gap. We collect donated rock instruments, restore them properly, and give them to schools so more students get to plug in, play and perform.</p>
@@ -68,9 +68,11 @@
     <!-- ===== Programs ===== -->
     <section class="section" id="programs">
       <div class="container">
-        <h2>What we do</h2>
-        <p class="lede" style="margin-bottom: 2rem;">From a donated guitar to a school stage, in three steps.</p>
-        <div class="programs-grid">
+        <div class="reveal">
+          <h2>What we do</h2>
+          <p class="lede" style="margin-bottom: 2rem;">From a donated guitar to a school stage, in three steps.</p>
+        </div>
+        <div class="programs-grid reveal">
           <article class="program-card feature">
             <img src="assets/img/program-refurbish.jpg" alt="Donated guitars and drums being unboxed in a workshop" width="819" height="1024" loading="lazy">
             <div class="program-body">
@@ -99,13 +101,13 @@
     <!-- ===== Donation tiers ===== -->
     <section class="tiers section">
       <div class="container tiers-grid">
-        <div class="tiers-copy">
+        <div class="tiers-copy reveal">
           <h2>Where your donation goes</h2>
           <p class="lede">Every gift helps move an instrument from a spare room to a school stage.</p>
           <p><a class="btn btn-primary" href="donate.html">Donate</a></p>
         </div>
         <!-- EDIT ME: adjust amounts and descriptions to your real refurbishment costs -->
-        <ul class="tier-list">
+        <ul class="tier-list reveal">
           <li class="tier-row">
             <span class="tier-amount">$40</span>
             <div>
@@ -134,9 +136,11 @@
     <!-- ===== Impact ===== -->
     <section class="section" id="impact">
       <div class="container">
-        <h2>Impact</h2>
-        <p class="lede" style="margin-bottom: 2rem;">What music teachers say about instruments we've delivered.</p>
-        <div class="impact-grid">
+        <div class="reveal">
+          <h2>Impact</h2>
+          <p class="lede" style="margin-bottom: 2rem;">What music teachers say about instruments we've delivered.</p>
+        </div>
+        <div class="impact-grid reveal">
           <div class="impact-photo">
             <img src="assets/img/impact-nvhs.jpg" alt="Handing over a refurbished red electric guitar at Narara Valley High School" width="900" height="1200" loading="lazy">
           </div>
@@ -154,26 +158,37 @@
       </div>
     </section>
 
-    <!-- ===== Team ===== -->
-    <section class="section" style="padding-top: 0;">
+    <!-- ===== Meet the band ===== -->
+    <section class="section" id="band" style="padding-top: 0;">
       <div class="container">
-        <h2>Who we are</h2>
-        <div class="team-grid">
-          <!-- EDIT ME: add each person's role under their name -->
+        <div class="reveal">
+          <h2>Meet the band</h2>
+          <p class="lede" style="margin-bottom: 2rem;">The committee keeping the amps humming.</p>
+        </div>
+        <div class="team-grid reveal">
           <article class="team-card">
             <img src="assets/img/team-matthew.jpg" alt="Matthew Rowan standing in front of a wall of guitars" width="700" height="875" loading="lazy">
-            <h3>Matthew Rowan</h3>
-            <p>Amplify Schools</p>
+            <div class="team-body">
+              <h3>Matthew Rowan</h3>
+              <p class="team-role">President and Founder</p>
+              <p class="team-bio">The steady heartbeat of Amplify Schools: part rock music tragic, part lovable nerd, part "I can fix that" wizard. He runs the operation with brains, heart and a suspicious love of spreadsheets. If there's a smarter way to get instruments to kids, he'll find it, usually with a fun fact about vintage amps.</p>
+            </div>
           </article>
           <article class="team-card">
-            <img src="assets/img/team-vanessa.jpg" alt="Vanessa Zeiden-Smith in a school music classroom" width="700" height="875" loading="lazy">
-            <h3>Vanessa Zeiden-Smith</h3>
-            <p>Amplify Schools</p>
+            <img src="assets/img/team-vanessa.jpg" alt="Vanessa Ziedan-Smith in a school music classroom" width="700" height="875" loading="lazy">
+            <div class="team-body">
+              <h3>Vanessa Ziedan-Smith</h3>
+              <p class="team-role">Treasurer</p>
+              <p class="team-bio">Vanessa has always had a deep love for music. She feels every lyric, finds energy in a guitar riff, and believes a great song can flip your whole mood. Community organisations weren't on her bucket list, but making a real difference through music was in her bones all along.</p>
+            </div>
           </article>
           <article class="team-card">
             <img src="assets/img/team-hylton.jpg" alt="Hylton Harris in a music studio with guitars on the wall" width="700" height="875" loading="lazy">
-            <h3>Hylton Harris</h3>
-            <p>Amplify Schools</p>
+            <div class="team-body">
+              <h3>Hylton Harris</h3>
+              <p class="team-role">Secretary</p>
+              <p class="team-bio">The quiet engine room of Amplify Schools: the first to say "How can I help?" and the last to leave when there's work to finish. Proof you don't need to play an instrument to help kids make music, just a good heart and a willingness to get stuck in.</p>
+            </div>
           </article>
         </div>
       </div>
@@ -196,11 +211,11 @@
   <footer class="site-footer" id="contact">
     <div class="container footer-grid">
       <div class="footer-about">
-        <a class="brand" href="index.html">
-          <span class="brand-mark">
-            <img src="assets/img/logo.png" alt="" width="118" height="132">
+        <a class="brand" href="index.html" aria-label="Amplify Schools home">
+          <span class="wordmark" aria-hidden="true">
+            <span class="wm-top">Amplify</span>
+            <span class="wm-bottom">Schools</span>
           </span>
-          Amplify Schools
         </a>
         <p>Refurbishing donated rock instruments and giving them to school music programs.</p>
         <div class="footer-social">
@@ -216,6 +231,7 @@
           <li><a href="#about">About</a></li>
           <li><a href="#programs">What we do</a></li>
           <li><a href="#impact">Impact</a></li>
+          <li><a href="#band">Meet the band</a></li>
           <li><a href="donate.html">Donate</a></li>
         </ul>
       </div>
@@ -229,8 +245,7 @@
     </div>
     <div class="container footer-legal">
       <p>&copy; <span id="year">2026</span> Amplify Schools. All rights reserved.</p>
-      <!-- EDIT ME: add your ABN and charity registration details, e.g. "ABN 12 345 678 901 | Registered charity" -->
-      <p>ABN: add your ABN here</p>
+      <p>ABN 32 761 982 262</p>
     </div>
   </footer>
 

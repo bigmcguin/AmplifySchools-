@@ -46,6 +46,25 @@ if (navToggle && navLinks) {
   });
 }
 
+/* ---------- Scroll reveal ---------- */
+/* CSS only hides .reveal elements when html.js is set and the user
+   allows motion, so this stays purely progressive enhancement. */
+const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+const revealEls = document.querySelectorAll(".reveal");
+if (revealEls.length && !reduceMotion.matches && "IntersectionObserver" in window) {
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("in");
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15, rootMargin: "0px 0px -40px 0px" });
+  revealEls.forEach((el) => io.observe(el));
+} else {
+  revealEls.forEach((el) => el.classList.add("in"));
+}
+
 /* ---------- Footer year ---------- */
 document.querySelectorAll("#year").forEach((el) => {
   el.textContent = String(new Date().getFullYear());
