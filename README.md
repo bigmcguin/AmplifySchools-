@@ -6,12 +6,14 @@ No build step, no framework. Plain HTML, CSS and JavaScript, so it can be hosted
 
 ## Brand
 
-Colours are taken from the Amplify Schools logo (`assets/img/logo.png`):
+Colours are taken from the Amplify Schools logo:
 
-- **Blue `#0173ac`**: all interactive elements (buttons, links, selected states)
-- **Green `#0e8f57`**: static highlights only (tier amounts, quote marks, aside icons)
+- **Navy `#1c3e66`**: structural (headings, hero scrim, CTA band, wordmark top line)
+- **Teal `#0b7488`**: the single interactive accent (buttons, links, selected states, highlights)
 
-Both are defined as CSS variables at the top of `assets/css/styles.css`, with dark mode equivalents. The logo was extracted from the supplied image collection; if you have the original vector logo (SVG or high-res PNG), drop it in as `assets/img/logo.png` for a crisper result.
+Both are defined as CSS variables at the top of `assets/css/styles.css`, with dark mode equivalents. Display type is Archivo in heavy italic, echoing the logo's wordmark.
+
+The header and footer currently use a typographic wordmark (stacked AMPLIFY / SCHOOLS) that matches the logo type treatment. To use the actual logo artwork instead, save a transparent PNG or SVG as `assets/img/logo.svg` and swap it into the `.brand` links in both HTML files.
 
 ## Structure
 
