@@ -13,7 +13,9 @@ Colours are taken from the Amplify Schools logo:
 
 Both are defined as CSS variables at the top of `assets/css/styles.css`, with dark mode equivalents. Display type is Archivo in heavy italic, echoing the logo's wordmark.
 
-The header and footer currently use a typographic wordmark (stacked AMPLIFY / SCHOOLS) that matches the logo type treatment. To use the actual logo artwork instead, save a transparent PNG or SVG as `assets/img/logo.svg` and swap it into the `.brand` links in both HTML files.
+The header and footer use a brand lockup: a recreated guitar outline (`assets/img/logo-guitar.svg`, drawn to match the logo's gradient stroke style) next to a typographic wordmark (stacked AMPLIFY / SCHOOLS). To use the original logo artwork instead, save it as a transparent SVG or PNG and swap it into the `.brand` links in both HTML files.
+
+When you change `styles.css` or `main.js`, bump the `?v=` number on their links in both HTML files so browsers and CDNs fetch the new version.
 
 ## Structure
 
