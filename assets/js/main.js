@@ -46,7 +46,7 @@ const PAYMENT_LINKS = {
    Web3Forms or any service accepting a JSON POST also works.
    Until this is set, applicants are shown an email fallback.
 ------------------------------------------------------------ */
-const REGISTER_FORM_ENDPOINT = "";
+const REGISTER_FORM_ENDPOINT = "https://formspree.io/f/xeajdyel";
 const CONTACT_EMAIL = "hello@amplifyschools.org"; // fallback shown if the endpoint is not set
 
 /* ---------- Mobile navigation ---------- */
