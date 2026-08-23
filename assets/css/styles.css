@@ -183,22 +183,10 @@ p { margin: 0 0 1em; max-width: 65ch; }
   display: flex; align-items: center; gap: 1.5rem;
   height: 72px;
 }
-.brand { display: inline-flex; align-items: center; gap: 0.45rem; text-decoration: none; margin-right: auto; }
-.brand-guitar { height: 60px; width: auto; flex: none; }
-.site-footer .brand-guitar { height: 84px; }
-/* Typographic wordmark: stacked heavy italic, navy + teal, as in the logo */
-.wordmark {
-  display: grid; line-height: 0.92;
-  font-family: var(--font-display); font-style: italic; font-weight: 800;
-  text-transform: uppercase; letter-spacing: 0.01em;
-}
-.wordmark .wm-top { font-size: 1.3rem; color: var(--navy); }
-.wordmark .wm-bottom { font-size: 0.83rem; color: var(--accent); letter-spacing: 0.18em; }
-@media (prefers-color-scheme: dark) {
-  .wordmark .wm-top { color: #e7edf3; }
-}
-.wordmark-hero .wm-top { font-size: 1.6rem; }
-.wordmark-hero .wm-bottom { font-size: 1.02rem; }
+.brand { display: inline-flex; align-items: center; text-decoration: none; margin-right: auto; }
+.brand picture { display: flex; }
+.brand-logo { height: 54px; width: auto; flex: none; }
+.site-footer .brand-logo { height: 74px; }
 
 .nav-links { display: flex; align-items: center; gap: 1.4rem; list-style: none; margin: 0; padding: 0; }
 .nav-links a:not(.btn) {
