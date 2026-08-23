@@ -36,6 +36,19 @@ const PAYMENT_LINKS = {
   },
 };
 
+/* ------------------------------------------------------------
+   SCHOOL REGISTRATION FORM SETUP
+   ------------------------------------------------------------
+   The application form posts to a hosted form service, so no
+   backend is needed. Recommended: Formspree (formspree.io).
+   1. Create a free Formspree account and a new form.
+   2. Paste its endpoint below, e.g. "https://formspree.io/f/abcdwxyz".
+   Web3Forms or any service accepting a JSON POST also works.
+   Until this is set, applicants are shown an email fallback.
+------------------------------------------------------------ */
+const REGISTER_FORM_ENDPOINT = "";
+const CONTACT_EMAIL = "hello@amplifyschools.org"; // fallback shown if the endpoint is not set
+
 /* ---------- Mobile navigation ---------- */
 const navToggle = document.querySelector(".nav-toggle");
 const navLinks = document.getElementById("nav-links");
@@ -129,4 +142,74 @@ if (donateBtn) {
   });
 
   updateButtonLabel();
+}
+
+/* ---------- School registration form (register.html only) ---------- */
+const registerForm = document.getElementById("register-form");
+if (registerForm) {
+  const submitBtn = document.getElementById("register-submit");
+  const alertBox = document.getElementById("register-alert");
+  const successBox = document.getElementById("register-success");
+
+  function showAlert(html) {
+    alertBox.innerHTML = html;
+    alertBox.classList.add("show");
+    alertBox.scrollIntoView({ block: "nearest" });
+  }
+
+  registerForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    alertBox.classList.remove("show");
+
+    if (!registerForm.reportValidity()) return;
+    // honeypot filled = bot; pretend success without sending
+    if (registerForm.elements.website.value) {
+      registerForm.hidden = true;
+      successBox.hidden = false;
+      return;
+    }
+
+    if (!REGISTER_FORM_ENDPOINT) {
+      const data = registerForm.elements;
+      const body = encodeURIComponent(
+        `School name: ${data.school_name.value}\n` +
+        `Contact name: ${data.contact_name.value}\n` +
+        `Email: ${data.email.value}\n` +
+        `Phone: ${data.phone.value}\n` +
+        `Instruments needed: ${data.instruments.value}\n` +
+        `Authority confirmed: yes`
+      );
+      const subject = encodeURIComponent(`School application: ${data.school_name.value}`);
+      showAlert(
+        `Online applications are still being set up. Please email your application instead: ` +
+        `<a href="mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}">send it with one click</a> ` +
+        `or write to ${CONTACT_EMAIL}.`
+      );
+      return;
+    }
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Sending application...";
+    try {
+      const formData = new FormData(registerForm);
+      formData.delete("website");
+      const res = await fetch(REGISTER_FORM_ENDPOINT, {
+        method: "POST",
+        body: formData,
+        headers: { Accept: "application/json" },
+      });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      registerForm.hidden = true;
+      successBox.hidden = false;
+      successBox.scrollIntoView({ block: "center" });
+    } catch (err) {
+      showAlert(
+        `Something went wrong sending your application. Please try again, ` +
+        `or email us at <a href="mailto:${CONTACT_EMAIL}">${CONTACT_EMAIL}</a>.`
+      );
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = "Submit application";
+    }
+  });
 }

@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Register your school | Amplify Schools</title>
+  <meta name="description" content="Register your school for donated rock instruments and support to build a sustainable modern music program.">
+  <meta property="og:title" content="Register your school | Amplify Schools">
+  <meta property="og:description" content="Apply for donated rock instruments and support for your school's music program.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231c3e66'/%3E%3Ctext x='33' y='47' font-family='Arial, sans-serif' font-size='42' font-weight='800' font-style='italic' text-anchor='middle' fill='%234cc3d5'%3EA%3C/text%3E%3C/svg%3E">
+  <link rel="preload" href="assets/fonts/archivo-latin-wght-italic.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/public-sans-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/styles.css?v=6">
+  <script>document.documentElement.classList.add("js");</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <nav class="nav container" aria-label="Main">
+      <a class="brand" href="index.html" aria-label="Amplify Schools home">
+        <picture>
+          <source srcset="assets/img/logo-dark.svg" media="(prefers-color-scheme: dark)">
+          <img class="brand-logo" src="assets/img/logo.svg" alt="Amplify Schools" width="818" height="467">
+        </picture>
+      </a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links">Menu</button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#programs">What we do</a></li>
+        <li><a href="index.html#impact">Impact</a></li>
+        <li><a href="index.html#band">Meet the band</a></li>
+        <li><a href="register.html" aria-current="page">For schools</a></li>
+        <li class="nav-cta"><a class="btn btn-primary" href="donate.html">Donate</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+
+    <section class="donate-intro container">
+      <h1>Are you ready to rock?</h1>
+      <p class="lede">Register for donated rock instruments and support to build a sustainable modern music program. Complete the application so we can understand your students, current music provision, and the contemporary instruments you need most.</p>
+    </section>
+
+    <section class="section container donate-layout">
+
+      <!-- ===== Application form ===== -->
+      <div class="donate-card">
+        <h2 class="form-title">Apply now</h2>
+        <form id="register-form" novalidate>
+          <div class="form-field">
+            <label for="school-name">School name</label>
+            <input id="school-name" name="school_name" type="text" required autocomplete="organization">
+          </div>
+          <div class="form-field">
+            <label for="contact-name">Contact name</label>
+            <input id="contact-name" name="contact_name" type="text" required autocomplete="name">
+          </div>
+          <div class="form-field">
+            <label for="contact-email">Email</label>
+            <input id="contact-email" name="email" type="email" required autocomplete="email">
+            <p class="field-hint">We'll reply to this address with a clear outcome.</p>
+          </div>
+          <div class="form-field">
+            <label for="contact-phone">Phone number</label>
+            <input id="contact-phone" name="phone" type="tel" required autocomplete="tel">
+          </div>
+          <div class="form-field">
+            <label for="instruments">What instruments do you need?</label>
+            <textarea id="instruments" name="instruments" rows="4" required></textarea>
+            <p class="field-hint">Guitars, basses, drums, keys, amps, mics: tell us what would make the biggest difference.</p>
+          </div>
+          <div class="form-check">
+            <input id="authority" name="authority" type="checkbox" required>
+            <label for="authority">I have the authority to make this request on behalf of my school (for example Music Head Teacher or Principal). I understand Amplify Schools will do their best to help our music program, but submitting this form doesn't guarantee instruments.</label>
+          </div>
+          <!-- honeypot for spam bots; leave empty -->
+          <div class="hp-field" aria-hidden="true">
+            <label for="website">Website</label>
+            <input id="website" name="website" type="text" tabindex="-1" autocomplete="off">
+          </div>
+          <button type="submit" class="btn btn-primary btn-lg donate-submit" id="register-submit">Submit application</button>
+          <div class="form-alert" id="register-alert" role="status"></div>
+        </form>
+        <div class="form-success" id="register-success" hidden>
+          <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#icon-check-circle"/></svg>
+          <h3>Application received.</h3>
+          <p>Thanks for applying. We'll be in touch by email with a clear outcome and explanation.</p>
+        </div>
+      </div>
+
+      <!-- ===== Who our support is for ===== -->
+      <aside class="give-aside">
+        <h2>Who our support is for</h2>
+        <p class="aside-lede">You're welcome to apply if your school:</p>
+        <ul class="check-list">
+          <li><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#icon-check-circle"/></svg> has limited access to quality contemporary instruments</li>
+          <li><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#icon-check-circle"/></svg> wants to grow or start a rock or contemporary music program</li>
+          <li><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#icon-check-circle"/></svg> can provide a safe, supervised space for instruments to be used</li>
+          <li><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#icon-check-circle"/></svg> is committed to giving as many students as possible access to music</li>
+        </ul>
+        <p class="aside-note">We prioritise schools where instruments will make the biggest difference, often those with an ICSEA around or below the national average (1000). But every school will hear back from us with a clear outcome and explanation.</p>
+      </aside>
+
+    </section>
+
+  </main>
+
+  <footer class="site-footer" id="contact">
+    <div class="container footer-grid">
+      <div class="footer-about">
+        <a class="brand" href="index.html" aria-label="Amplify Schools home">
+          <picture>
+            <source srcset="assets/img/logo-dark.svg" media="(prefers-color-scheme: dark)">
+            <img class="brand-logo" src="assets/img/logo.svg" alt="Amplify Schools" width="818" height="467">
+          </picture>
+        </a>
+        <p>Refurbishing donated rock instruments and giving them to school music programs.</p>
+        <div class="footer-social">
+          <a href="https://www.facebook.com/amplifyschool/" aria-label="Facebook"><svg class="icon"><use href="assets/icons.svg#icon-facebook-logo"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg class="icon"><use href="assets/icons.svg#icon-instagram-logo"/></svg></a>
+          <a href="#" aria-label="LinkedIn"><svg class="icon"><use href="assets/icons.svg#icon-linkedin-logo"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <h3>Explore</h3>
+        <ul>
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="index.html#programs">What we do</a></li>
+          <li><a href="index.html#impact">Impact</a></li>
+          <li><a href="register.html">Register your school</a></li>
+          <li><a href="donate.html">Donate</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Contact</h3>
+        <ul>
+          <li><a href="mailto:hello@amplifyschools.org">hello@amplifyschools.org</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container footer-legal">
+      <p>&copy; <span id="year">2026</span> Amplify Schools. All rights reserved.</p>
+      <p>ABN 32 761 982 262</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js?v=6"></script>
+</body>
+</html>
