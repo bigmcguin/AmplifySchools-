@@ -47,7 +47,7 @@ const PAYMENT_LINKS = {
    Until this is set, applicants are shown an email fallback.
 ------------------------------------------------------------ */
 const REGISTER_FORM_ENDPOINT = "https://formspree.io/f/xeajdyel";
-const CONTACT_EMAIL = "hello@amplifyschools.org"; // fallback shown if the endpoint is not set
+const CONTACT_EMAIL = "backstage@amplifyschools.org"; // fallback shown if the endpoint is not set
 
 /* ---------- Mobile navigation ---------- */
 const navToggle = document.querySelector(".nav-toggle");
