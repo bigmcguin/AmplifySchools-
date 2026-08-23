@@ -24,15 +24,15 @@ const PAYMENT_LINKS = {
   once: {
     // "any" = a link where the donor chooses their own amount
     any: "",
-    35: "",
-    75: "",
+    40: "",
     150: "",
+    500: "",
   },
   monthly: {
     any: "",
-    35: "",
-    75: "",
+    40: "",
     150: "",
+    500: "",
   },
 };
 
@@ -60,7 +60,7 @@ if (donateBtn) {
   const alertBox = document.getElementById("donate-alert");
 
   let frequency = "once";
-  let amount = 75;
+  let amount = 150;
 
   const labels = { once: "Donate", monthly: "Donate monthly" };
 

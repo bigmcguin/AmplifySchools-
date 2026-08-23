@@ -1,6 +1,8 @@
 /* ============================================================
    Amplify Schools - site stylesheet
-   Palette: terracotta accent + slate neutrals, auto light/dark.
+   Brand palette from the Amplify Schools logo:
+   blue #0173ac (interactive: buttons, links) and
+   green #0e8f57 (static highlights only). Auto light/dark.
    Type: Outfit (display) + Public Sans (body), self-hosted.
    ============================================================ */
 
@@ -29,16 +31,17 @@
 
 /* ---------- Tokens ---------- */
 :root {
-  --bg: #f6f7f9;
+  --bg: #f5f7fa;
   --surface: #fdfdfe;
   --surface-raised: #ffffffee;
-  --ink: #1d2632;
-  --ink-soft: #465363;
-  --line: #dde2e9;
-  --accent: #b0400f;
-  --accent-hover: #963409;
-  --accent-ink: #fdf6f2;      /* text on accent */
-  --accent-tint: #f6e9e2;     /* soft accent wash */
+  --ink: #1e2733;
+  --ink-soft: #46566a;
+  --line: #dbe2ea;
+  --accent: #0173ac;
+  --accent-hover: #01689b;
+  --accent-ink: #f7fbfd;      /* text on accent */
+  --accent-tint: #e3f0f7;     /* soft accent wash */
+  --green: #0e8f57;           /* brand green: static highlights only */
   --focus: #1d4ed8;
 
   --font-display: "Outfit", system-ui, sans-serif;
@@ -46,7 +49,7 @@
 
   --radius: 14px;             /* one radius scale: soft */
   --radius-sm: 10px;
-  --shadow: 0 1px 2px rgb(29 38 50 / 0.05), 0 8px 24px rgb(29 38 50 / 0.07);
+  --shadow: 0 1px 2px rgb(30 39 51 / 0.05), 0 8px 24px rgb(30 39 51 / 0.07);
   --container: 1160px;
 
   color-scheme: light dark;
@@ -54,16 +57,17 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #131820;
-    --surface: #1a212b;
-    --surface-raised: #1f2833ee;
-    --ink: #e7eaef;
-    --ink-soft: #a8b2c0;
-    --line: #2c3644;
-    --accent: #ef8a52;
-    --accent-hover: #f49e6d;
-    --accent-ink: #24130a;
-    --accent-tint: #2a2019;
+    --bg: #10161d;
+    --surface: #171f28;
+    --surface-raised: #1c2530ee;
+    --ink: #e6eaef;
+    --ink-soft: #a4b0bf;
+    --line: #2a3543;
+    --accent: #5cbcec;
+    --accent-hover: #83cdf3;
+    --accent-ink: #08222f;
+    --accent-tint: #17303f;
+    --green: #35b57d;
     --focus: #93b4f8;
     --shadow: 0 1px 2px rgb(0 0 0 / 0.35), 0 8px 24px rgb(0 0 0 / 0.35);
   }
@@ -154,12 +158,8 @@ p { margin: 0 0 1em; max-width: 65ch; }
   color: var(--ink); text-decoration: none; letter-spacing: -0.01em;
   margin-right: auto;
 }
-.brand-mark {
-  width: 34px; height: 34px; border-radius: 9px;
-  background: var(--accent); color: var(--accent-ink);
-  display: grid; place-items: center; flex: none;
-}
-.brand-mark svg { width: 18px; height: 18px; }
+.brand-mark { display: grid; place-items: center; flex: none; }
+.brand-mark img { height: 38px; width: auto; }
 .nav-links { display: flex; align-items: center; gap: 1.4rem; list-style: none; margin: 0; padding: 0; }
 .nav-links a:not(.btn) {
   color: var(--ink-soft); text-decoration: none; font-weight: 500; font-size: 0.95rem;
@@ -197,7 +197,7 @@ p { margin: 0 0 1em; max-width: 65ch; }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 0.9rem; align-items: center; }
 .hero-media { position: relative; }
 .hero-media img {
-  width: 100%; aspect-ratio: 4 / 5; object-fit: cover;
+  width: 100%; aspect-ratio: 4 / 3; object-fit: cover;
   border-radius: var(--radius); box-shadow: var(--shadow);
 }
 @media (max-width: 860px) {
@@ -252,7 +252,7 @@ p { margin: 0 0 1em; max-width: 65ch; }
 .tier-row + .tier-row { border-top: 1px solid var(--line); }
 .tier-amount {
   font-family: var(--font-display); font-weight: 700; font-size: 2rem;
-  color: var(--accent); min-width: 4.5ch;
+  color: var(--green); min-width: 4.5ch;
 }
 .tier-row h3 { margin-bottom: 0.2em; }
 .tier-row p { margin: 0; color: var(--ink-soft); font-size: 0.98rem; }
@@ -260,19 +260,48 @@ p { margin: 0 0 1em; max-width: 65ch; }
   .tiers-grid { grid-template-columns: 1fr; }
 }
 
-/* ---------- Quote ---------- */
-.quote-section blockquote {
-  margin: 0 auto; max-width: 44rem; text-align: center;
+/* ---------- Impact (photo + quotes) ---------- */
+.impact-grid {
+  display: grid; gap: clamp(1.5rem, 4vw, 3rem);
+  grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+  align-items: center;
 }
-.quote-section blockquote p {
+.impact-photo img {
+  width: 100%; aspect-ratio: 3 / 4; object-fit: cover;
+  border-radius: var(--radius); box-shadow: var(--shadow);
+}
+.impact-quotes { display: grid; gap: 2rem; }
+.impact-quotes blockquote { margin: 0; }
+.impact-quotes blockquote p {
   font-family: var(--font-display); font-weight: 520;
-  font-size: clamp(1.35rem, 2.6vw, 1.8rem); line-height: 1.35;
-  color: var(--ink); max-width: none; margin-bottom: 1.2rem;
+  font-size: clamp(1.15rem, 2vw, 1.4rem); line-height: 1.4;
+  color: var(--ink); max-width: none; margin-bottom: 0.7rem;
 }
-.quote-section cite {
-  font-style: normal; color: var(--ink-soft); font-size: 0.98rem;
+.impact-quotes blockquote p::before { content: "\201C"; color: var(--green); }
+.impact-quotes blockquote p::after { content: "\201D"; color: var(--green); }
+.impact-quotes cite {
+  font-style: normal; color: var(--ink-soft); font-size: 0.95rem;
 }
-.quote-section cite strong { color: var(--ink); font-weight: 600; display: block; }
+.impact-quotes cite strong { color: var(--ink); font-weight: 600; }
+@media (max-width: 860px) {
+  .impact-grid { grid-template-columns: 1fr; }
+  .impact-photo { max-width: 420px; }
+}
+
+/* ---------- Team ---------- */
+.team-grid {
+  display: grid; gap: 1.5rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.team-card img {
+  width: 100%; aspect-ratio: 4 / 5; object-fit: cover;
+  border-radius: var(--radius);
+}
+.team-card h3 { margin: 0.8rem 0 0.1rem; font-size: 1.1rem; }
+.team-card p { margin: 0; color: var(--ink-soft); font-size: 0.92rem; }
+@media (max-width: 767px) {
+  .team-grid { grid-template-columns: 1fr; max-width: 340px; }
+}
 
 /* ---------- CTA band ---------- */
 .cta-band { background: var(--accent); color: var(--accent-ink); }
@@ -284,10 +313,7 @@ p { margin: 0 0 1em; max-width: 65ch; }
 .cta-band .btn-primary {
   background: var(--accent-ink); color: var(--accent);
 }
-.cta-band .btn-primary:hover { background: #ffffffd9; color: var(--accent-hover); }
-@media (prefers-color-scheme: dark) {
-  .cta-band .btn-primary:hover { background: #120a05; color: var(--accent-hover); }
-}
+.cta-band .btn-primary:hover { background: var(--bg); color: var(--accent-hover); }
 
 /* ---------- Footer ---------- */
 .site-footer { border-top: 1px solid var(--line); background: var(--surface); }
@@ -395,7 +421,7 @@ p { margin: 0 0 1em; max-width: 65ch; }
 .give-item { padding: 1.2rem 0; }
 .give-item + .give-item { border-top: 1px solid var(--line); }
 .give-item h3 { display: flex; align-items: center; gap: 0.55rem; font-size: 1.05rem; margin-bottom: 0.3em; }
-.give-item h3 .icon { color: var(--accent); }
+.give-item h3 .icon { color: var(--green); }
 .give-item p { margin: 0; color: var(--ink-soft); font-size: 0.95rem; }
 .give-item .bank-details {
   margin: 0.7rem 0 0; padding: 0.8rem 1rem;

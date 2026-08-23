@@ -1,16 +1,26 @@
 # Amplify Schools website
 
-A fast, public-focused website for [amplifyschools.org](https://amplifyschools.org): a homepage that tells the story, and a donate page ready to take one-off and monthly donations.
+A fast, public-focused website for [amplifyschools.org](https://amplifyschools.org): a homepage that tells the story (refurbishing donated rock instruments and giving them to school music programs), and a donate page ready to take one-off and monthly donations, or instrument donations.
 
 No build step, no framework. Plain HTML, CSS and JavaScript, so it can be hosted anywhere (GitHub Pages, Netlify, Cloudflare Pages) for free.
+
+## Brand
+
+Colours are taken from the Amplify Schools logo (`assets/img/logo.png`):
+
+- **Blue `#0173ac`**: all interactive elements (buttons, links, selected states)
+- **Green `#0e8f57`**: static highlights only (tier amounts, quote marks, aside icons)
+
+Both are defined as CSS variables at the top of `assets/css/styles.css`, with dark mode equivalents. The logo was extracted from the supplied image collection; if you have the original vector logo (SVG or high-res PNG), drop it in as `assets/img/logo.png` for a crisper result.
 
 ## Structure
 
 ```
-index.html          Homepage (hero, mission, programs, donation tiers, quote, CTA)
+index.html          Homepage (hero, mission, programs, tiers, impact, team, CTA)
 donate.html         Donate page (donation widget, other ways to give, FAQ)
 assets/css/styles.css   All styling (light + dark mode, responsive)
 assets/js/main.js       Navigation, donation widget, PAYMENT_LINKS config
+assets/img/             Logo and photos (from the site's image collection)
 assets/fonts/           Self-hosted fonts (Outfit + Public Sans)
 assets/icons.svg        Icon sprite (Phosphor Icons, MIT licence)
 ```
@@ -26,16 +36,15 @@ python3 -m http.server 8000
 
 ## Content to replace before launch
 
-Search both HTML files for `EDIT ME` and `TODO` comments. In particular:
+Search both HTML files for `EDIT ME` comments. In particular:
 
-1. **Photos**: the images are placeholders from picsum.photos. Replace them with real photos of your school communities (with permission). Drop files into `assets/img/` and update the `<img src>` paths.
-2. **Mission copy** in the "Why we exist" section.
-3. **Programs**: names, descriptions and photos of what you actually run.
-4. **Donation tiers**: the $35 / $75 / $150 amounts and what they fund.
-5. **Quote**: a real quote from a school leader, teacher or family, with their name.
-6. **Bank transfer details** on the donate page (BSB, account number).
-7. **Contact email, social links, ABN and charity registration** in the footer.
-8. **Tax deductibility FAQ**: confirm whether you have DGR (Deductible Gift Recipient) status with the ATO and update the answer. Only DGR-endorsed organisations can offer tax-deductible receipts in Australia.
+1. **Team roles**: the "Who we are" section shows Matthew, Vanessa and Hylton with a generic "Amplify Schools" line; replace it with each person's actual role.
+2. **Donation tiers**: the $40 / $150 / $500 amounts and descriptions are sensible guesses; adjust them to your real refurbishment costs.
+3. **Mission copy** in the "Why we exist" section: tune to your official wording.
+4. **Bank transfer details** on the donate page (BSB, account number).
+5. **Contact email, social links, ABN and charity registration** in the footer.
+6. **Tax deductibility FAQ**: confirm whether you have DGR (Deductible Gift Recipient) status with the ATO and update the answer. Only DGR-endorsed organisations can offer tax-deductible receipts in Australia.
+7. **Photo permissions**: the photos and testimonial names came from your uploaded image collection; double-check you have permission to publish each one, especially images featuring school staff and students.
 
 ## Taking donations: how to wire up payments
 
@@ -47,7 +56,7 @@ No code and no monthly fee; Stripe takes about 1.7% + $0.30 per domestic card tr
 
 1. Create an account at [stripe.com/au](https://stripe.com/au) (registered charities can apply for discounted nonprofit pricing via Stripe support).
 2. In the dashboard, go to **Payment Links → New**.
-3. Create links for each preset ($35, $75, $150), one set as one-off and one set as a monthly recurring price. Also create one "Customers choose what to pay" link per frequency for custom amounts.
+3. Create links for each preset ($40, $150, $500), one set as one-off and one set as a monthly recurring price. Also create one "Customers choose what to pay" link per frequency for custom amounts.
 4. Paste the URLs into `PAYMENT_LINKS` in `assets/js/main.js`.
 
 ### Option B: PayPal Donations
