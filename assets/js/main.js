@@ -47,7 +47,11 @@ const PAYMENT_LINKS = {
    Until this is set, applicants are shown an email fallback.
 ------------------------------------------------------------ */
 const REGISTER_FORM_ENDPOINT = "https://formspree.io/f/xeajdyel";
-const CONTACT_EMAIL = "backstage@amplifyschools.org"; // fallback shown if the endpoint is not set
+// The contact form reuses the same Formspree form by default; submissions
+// are distinguished by their subject line. To route contact messages to a
+// separate Formspree form instead, paste its endpoint here.
+const CONTACT_FORM_ENDPOINT = REGISTER_FORM_ENDPOINT;
+const CONTACT_EMAIL = "backstage@amplifyschools.org"; // fallback shown if an endpoint is not set
 
 /* ---------- Mobile navigation ---------- */
 const navToggle = document.querySelector(".nav-toggle");
@@ -144,12 +148,14 @@ if (donateBtn) {
   updateButtonLabel();
 }
 
-/* ---------- School registration form (register.html only) ---------- */
-const registerForm = document.getElementById("register-form");
-if (registerForm) {
-  const submitBtn = document.getElementById("register-submit");
-  const alertBox = document.getElementById("register-alert");
-  const successBox = document.getElementById("register-success");
+/* ---------- Hosted forms (register.html and contact.html) ---------- */
+function wireHostedForm({ formId, submitId, alertId, successId, endpoint, sendingLabel, mailtoSubject }) {
+  const form = document.getElementById(formId);
+  if (!form) return;
+  const submitBtn = document.getElementById(submitId);
+  const alertBox = document.getElementById(alertId);
+  const successBox = document.getElementById(successId);
+  const idleLabel = submitBtn.textContent.trim();
 
   function showAlert(html) {
     alertBox.innerHTML = html;
@@ -157,31 +163,30 @@ if (registerForm) {
     alertBox.scrollIntoView({ block: "nearest" });
   }
 
-  registerForm.addEventListener("submit", async (event) => {
+  form.addEventListener("submit", async (event) => {
     event.preventDefault();
     alertBox.classList.remove("show");
 
-    if (!registerForm.reportValidity()) return;
+    if (!form.reportValidity()) return;
     // honeypot filled = bot; pretend success without sending
-    if (registerForm.elements.website.value) {
-      registerForm.hidden = true;
+    if (form.elements.website && form.elements.website.value) {
+      form.hidden = true;
       successBox.hidden = false;
       return;
     }
 
-    if (!REGISTER_FORM_ENDPOINT) {
-      const data = registerForm.elements;
-      const body = encodeURIComponent(
-        `School name: ${data.school_name.value}\n` +
-        `Contact name: ${data.contact_name.value}\n` +
-        `Email: ${data.email.value}\n` +
-        `Phone: ${data.phone.value}\n` +
-        `Instruments needed: ${data.instruments.value}\n` +
-        `Authority confirmed: yes`
-      );
-      const subject = encodeURIComponent(`School application: ${data.school_name.value}`);
+    if (!endpoint) {
+      // No endpoint configured: build a pre-filled email from the fields.
+      const lines = [];
+      for (const el of form.elements) {
+        if (!el.name || el.name === "website" || el.name.startsWith("_") || el.type === "hidden") continue;
+        if (el.type === "checkbox") lines.push(`${el.name}: ${el.checked ? "yes" : "no"}`);
+        else if (el.value) lines.push(`${el.name}: ${el.value}`);
+      }
+      const subject = encodeURIComponent(mailtoSubject);
+      const body = encodeURIComponent(lines.join("\n"));
       showAlert(
-        `Online applications are still being set up. Please email your application instead: ` +
+        `This form is still being set up. Please email us instead: ` +
         `<a href="mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}">send it with one click</a> ` +
         `or write to ${CONTACT_EMAIL}.`
       );
@@ -189,27 +194,47 @@ if (registerForm) {
     }
 
     submitBtn.disabled = true;
-    submitBtn.textContent = "Sending application...";
+    submitBtn.textContent = sendingLabel;
     try {
-      const formData = new FormData(registerForm);
+      const formData = new FormData(form);
       formData.delete("website");
-      const res = await fetch(REGISTER_FORM_ENDPOINT, {
+      const res = await fetch(endpoint, {
         method: "POST",
         body: formData,
         headers: { Accept: "application/json" },
       });
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
-      registerForm.hidden = true;
+      form.hidden = true;
       successBox.hidden = false;
       successBox.scrollIntoView({ block: "center" });
     } catch (err) {
       showAlert(
-        `Something went wrong sending your application. Please try again, ` +
+        `Something went wrong sending your message. Please try again, ` +
         `or email us at <a href="mailto:${CONTACT_EMAIL}">${CONTACT_EMAIL}</a>.`
       );
     } finally {
       submitBtn.disabled = false;
-      submitBtn.textContent = "Submit application";
+      submitBtn.textContent = idleLabel;
     }
   });
 }
+
+wireHostedForm({
+  formId: "register-form",
+  submitId: "register-submit",
+  alertId: "register-alert",
+  successId: "register-success",
+  endpoint: REGISTER_FORM_ENDPOINT,
+  sendingLabel: "Sending application...",
+  mailtoSubject: "School application",
+});
+
+wireHostedForm({
+  formId: "contact-form",
+  submitId: "contact-submit",
+  alertId: "contact-alert",
+  successId: "contact-success",
+  endpoint: CONTACT_FORM_ENDPOINT,
+  sendingLabel: "Sending message...",
+  mailtoSubject: "Website enquiry",
+});
