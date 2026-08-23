@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="24 0 160 364" fill="none">
+  <defs>
+    <linearGradient id="ampgrad" x1="0" y1="0" x2="0.4" y2="1">
+      <stop offset="0" stop-color="#15628b"/>
+      <stop offset="1" stop-color="#12919e"/>
+    </linearGradient>
+  </defs>
+  <g stroke="url(#ampgrad)" stroke-linecap="round" stroke-linejoin="round" transform="rotate(8 110 180)">
+    <!-- headstock -->
+    <path d="M98 48 C95 34 93 24 86 14 C82 6 90 2 97 7 C107 14 116 20 118 32 L121 48" stroke-width="9"/>
+    <!-- neck -->
+    <path d="M98 48 L94 188" stroke-width="9"/>
+    <path d="M121 48 L125 188" stroke-width="9"/>
+    <!-- strings -->
+    <path d="M102 54 L100 296" stroke-width="2.6"/>
+    <path d="M105.5 54 L105 298" stroke-width="2.6"/>
+    <path d="M109 54 L110 299" stroke-width="2.6"/>
+    <path d="M112.5 54 L115 299" stroke-width="2.6"/>
+    <path d="M116 54 L120 298" stroke-width="2.6"/>
+    <path d="M119.5 54 L125 296" stroke-width="2.6"/>
+    <!-- body: Strat-style double cutaway -->
+    <path d="M95 190
+             C93 202 87 206 80 201
+             C69 192 59 186 55 194
+             C45 208 39 228 40 250
+             C41 272 49 282 51 296
+             C55 330 79 348 110 350
+             C142 352 165 336 168 308
+             C170 290 163 282 168 266
+             C176 246 178 226 169 208
+             C162 193 149 185 140 192
+             C132 198 128 202 124 196"
+          stroke-width="13"/>
+  </g>
+</svg>

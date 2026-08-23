@@ -183,7 +183,9 @@ p { margin: 0 0 1em; max-width: 65ch; }
   display: flex; align-items: center; gap: 1.5rem;
   height: 72px;
 }
-.brand { display: inline-flex; align-items: center; text-decoration: none; margin-right: auto; }
+.brand { display: inline-flex; align-items: center; gap: 0.45rem; text-decoration: none; margin-right: auto; }
+.brand-guitar { height: 60px; width: auto; flex: none; }
+.site-footer .brand-guitar { height: 84px; }
 /* Typographic wordmark: stacked heavy italic, navy + teal, as in the logo */
 .wordmark {
   display: grid; line-height: 0.92;
