@@ -155,6 +155,20 @@ if (donateBtn) {
   updateButtonLabel();
 }
 
+/* ---------- Copy bank details (donate.html only) ---------- */
+document.querySelectorAll(".copy-btn").forEach((btn) => {
+  const label = btn.querySelector(".copy-label");
+  btn.addEventListener("click", async () => {
+    try {
+      await navigator.clipboard.writeText(btn.dataset.copy);
+      label.textContent = "Copied";
+    } catch {
+      label.textContent = "Copy failed";
+    }
+    setTimeout(() => { label.textContent = "Copy"; }, 2000);
+  });
+});
+
 /* ---------- Hosted forms (register.html and contact.html) ---------- */
 function wireHostedForm({ formId, submitId, alertId, successId, endpoint, sendingLabel, mailtoSubject }) {
   const form = document.getElementById(formId);
