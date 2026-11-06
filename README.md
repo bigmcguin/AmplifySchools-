@@ -42,8 +42,6 @@ Rules from the ACNC's Registered Charity Tick style guide and terms of use:
 
 Charity registration is separate from DGR (Deductible Gift Recipient) endorsement by the ATO. Keep the "not tax deductible" wording on the donate page until DGR status is granted.
 
-**Still to do:** the Tick links to a Register search for the ABN (`https://www.acnc.gov.au/charity/charities?search=32761982262`) rather than straight to the listing. Open that link, click through to the Amplify Schools listing, and paste its URL over the search link in all four HTML files (five places: each page footer plus the donate page note).
-
 ## Structure
 
 ```
@@ -89,7 +87,6 @@ Search both HTML files for `EDIT ME` comments. In particular:
 5. **Contact email and social links** in the footer. The ABN and the Registered Charity Tick are already in place.
 6. **Tax deductibility FAQ**: confirm whether you have DGR (Deductible Gift Recipient) status with the ATO and update the answer. Only DGR-endorsed organisations can offer tax-deductible receipts in Australia.
 7. **Photo permissions**: the photos and testimonial names came from your uploaded image collection; double-check you have permission to publish each one, especially images featuring school staff and students.
-8. **ACNC Charity Register link**: swap the Tick's Register search link for the direct listing URL (see "Registered Charity Tick" above).
 
 ## Taking donations: how to wire up payments
 
