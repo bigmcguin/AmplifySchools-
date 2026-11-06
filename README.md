@@ -42,8 +42,6 @@ Rules from the ACNC's Registered Charity Tick style guide and terms of use:
 
 Charity registration is separate from DGR (Deductible Gift Recipient) endorsement by the ATO. Keep the "not tax deductible" wording on the donate page until DGR status is granted.
 
-**Still to do:** the Tick links to a Register search for the ABN (`https://www.acnc.gov.au/charity/charities?search=32761982262`) rather than straight to the listing. Open that link, click through to the Amplify Schools listing, and paste its URL over the search link in all four HTML files (five places: each page footer plus the donate page note).
-
 ## Structure
 
 ```
@@ -89,7 +87,6 @@ Search both HTML files for `EDIT ME` comments. In particular:
 5. **Contact email and social links** in the footer. The ABN and the Registered Charity Tick are already in place.
 6. **Tax deductibility FAQ**: confirm whether you have DGR (Deductible Gift Recipient) status with the ATO and update the answer. Only DGR-endorsed organisations can offer tax-deductible receipts in Australia.
 7. **Photo permissions**: the photos and testimonial names came from your uploaded image collection; double-check you have permission to publish each one, especially images featuring school staff and students.
-8. **ACNC Charity Register link**: swap the Tick's Register search link for the direct listing URL (see "Registered Charity Tick" above).
 
 ## Taking donations: how to wire up payments
 
@@ -127,6 +124,28 @@ Before actively fundraising, check your state's charitable fundraising licence r
 **GitHub Pages** (free): repository Settings → Pages → deploy from the `main` branch, root folder. Then point the `amplifyschools.org` DNS at GitHub Pages and add the domain in the Pages settings (a `CNAME` file will be created automatically).
 
 **Netlify / Cloudflare Pages** (free): connect the repository, no build command needed, publish directory is the repository root.
+
+## Search engines (SEO)
+
+The site's preferred address is `https://amplifyschools.org/` (no www). It's written into:
+
+- the `<link rel="canonical">` and `og:url` tags on every page
+- the structured data (JSON-LD) on the homepage, which tells Google that Amplify Schools is a charity and this is its website
+- `sitemap.xml` and `robots.txt`
+
+If the site ever moves to `www.amplifyschools.org`, find and replace `https://amplifyschools.org/` in those files. When you add a page, give it its own canonical tag and add it to `sitemap.xml`.
+
+The favicon files (`favicon.ico` with 16, 32 and 48px sizes, `favicon.svg`, and `apple-touch-icon.png` for iPhone home screens) sit in the site root and are linked from every page. Google only shows a favicon that's a real file, so don't switch back to an inline `data:` icon.
+
+GitHub Pages also publishes a copy at `https://bigmcguin.github.io/AmplifySchools-/`. The canonical tags tell Google that amplifyschools.org is the real version, so the copy doesn't compete with it in search results. Serving the domain from one place is better still (see Publishing).
+
+To keep an eye on rankings:
+
+1. Verify `amplifyschools.org` in [Google Search Console](https://search.google.com/search-console) as a Domain property (it gives you a TXT record to add to your DNS).
+2. Submit `https://amplifyschools.org/sitemap.xml` under **Sitemaps**.
+3. Use **URL Inspection** on the homepage to see whether it's indexed and which canonical Google chose, then click **Request indexing**.
+4. Check **Pages** for anything excluded, and **Security & Manual actions** for problems.
+5. Make sure the charity's ACNC Charity Register listing shows the website address, and ask partner schools to link to the site. Links from trusted sites help the most.
 
 ## Credits
 
