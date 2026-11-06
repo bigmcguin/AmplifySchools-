@@ -390,6 +390,30 @@ p { margin: 0 0 1em; max-width: 65ch; }
   .footer-grid { grid-template-columns: 1fr; }
 }
 
+/* ---------- ACNC Registered Charity Tick ---------- */
+/* Official ACNC artwork: never recolour, redraw or distort it.
+   ACNC style guide: at least 15mm wide (about 57px), 5mm (about 19px)
+   clear space all round, and always linked to our listing on the
+   ACNC Charity Register. The colour Tick is for light backgrounds;
+   <picture> swaps in the white (reversed) Tick for dark mode. */
+.charity-tick { display: inline-flex; margin-top: 0.5rem; }
+.charity-tick picture { display: flex; }
+.charity-tick img { width: 88px; height: 88px; }
+.charity-tick:focus-visible { border-radius: 50%; }
+
+/* Donate page: Tick plus a one-line note, as a single link */
+.charity-note {
+  display: flex; align-items: center; gap: 1.25rem;
+  margin-top: 1.4rem; padding-top: 1.4rem; border-top: 1px solid var(--line);
+  color: var(--ink-soft); font-size: 0.92rem; line-height: 1.5; text-decoration: none;
+}
+.charity-note:hover { color: var(--ink-soft); }
+.charity-note picture { display: flex; flex: none; }
+.charity-note img { width: 72px; height: 72px; }
+.charity-note strong { display: block; color: var(--ink); font-weight: 650; }
+.charity-note-link { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+.charity-note:hover .charity-note-link { color: var(--accent-hover); }
+
 /* ============================================================
    Donate page
    ============================================================ */
