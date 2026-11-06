@@ -138,6 +138,8 @@ The site's preferred address is `https://amplifyschools.org/` (no www). It's wri
 
 If the site ever moves to `www.amplifyschools.org`, find and replace `https://amplifyschools.org/` in those files. When you add a page, give it its own canonical tag and add it to `sitemap.xml`.
 
+The favicon files (`favicon.ico` with 16, 32 and 48px sizes, `favicon.svg`, and `apple-touch-icon.png` for iPhone home screens) sit in the site root and are linked from every page. Google only shows a favicon that's a real file, so don't switch back to an inline `data:` icon.
+
 GitHub Pages also publishes a copy at `https://bigmcguin.github.io/AmplifySchools-/`. The canonical tags tell Google that amplifyschools.org is the real version, so the copy doesn't compete with it in search results. Serving the domain from one place is better still (see Publishing).
 
 To keep an eye on rankings:
