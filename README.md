@@ -17,6 +17,33 @@ The header and footer use a brand lockup: a recreated guitar outline (`assets/im
 
 When you change `styles.css` or `main.js`, bump the `?v=` number on their links in both HTML files so browsers and CDNs fetch the new version.
 
+## Registered Charity Tick (ACNC)
+
+Amplify Schools is registered with the ACNC (Australian Charities and Not-for-profits Commission), so the site shows the Registered Charity Tick:
+
+- **Every page footer**, under the tagline.
+- **The donate page**, at the bottom of the donation card, with a one-line "registered charity" note.
+
+Both link to the charity's entry on the ACNC Charity Register, as the ACNC expects whenever the Tick is used online.
+
+The files are the official ACNC artwork, cropped to the circle and saved as lossless WebP (264px square, three times the largest display size):
+
+- `assets/img/acnc-charity-tick.webp`: full colour, for light backgrounds.
+- `assets/img/acnc-charity-tick-dark.webp`: white (reversed), swapped in automatically in dark mode.
+
+The black (mono) version from the ACNC pack is for single-colour print, so the site doesn't use it.
+
+Rules from the ACNC's Registered Charity Tick style guide and terms of use:
+
+- Don't recolour, redraw, stretch or add effects to the Tick.
+- Keep it at least 15mm wide (about 57px on screen) with 5mm (about 19px) of clear space around it.
+- Link it to the charity's Charity Register listing.
+- Only use it while Amplify Schools stays registered.
+
+Charity registration is separate from DGR (Deductible Gift Recipient) endorsement by the ATO. Keep the "not tax deductible" wording on the donate page until DGR status is granted.
+
+**Still to do:** the Tick links to a Register search for the ABN (`https://www.acnc.gov.au/charity/charities?search=32761982262`) rather than straight to the listing. Open that link, click through to the Amplify Schools listing, and paste its URL over the search link in all four HTML files (five places: each page footer plus the donate page note).
+
 ## Structure
 
 ```
@@ -26,7 +53,8 @@ register.html       School registration (application form + eligibility)
 assets/css/styles.css   All styling (light + dark mode, responsive)
 assets/js/main.js       Navigation, donation widget, registration form,
                         PAYMENT_LINKS and REGISTER_FORM_ENDPOINT config
-assets/img/             Logo and photos (from the site's image collection)
+assets/img/             Logo, photos (from the site's image collection) and
+                        the ACNC Registered Charity Tick
 assets/fonts/           Self-hosted fonts (Archivo + Public Sans)
 assets/icons.svg        Icon sprite (Phosphor Icons, MIT licence)
 ```
@@ -58,9 +86,10 @@ Search both HTML files for `EDIT ME` comments. In particular:
 2. **Donation tiers**: the $40 / $150 / $500 amounts and descriptions are sensible guesses; adjust them to your real refurbishment costs.
 3. **Mission copy** in the "Why we exist" section: tune to your official wording.
 4. **Bank transfer details** on the donate page (BSB, account number).
-5. **Contact email, social links, ABN and charity registration** in the footer.
+5. **Contact email and social links** in the footer. The ABN and the Registered Charity Tick are already in place.
 6. **Tax deductibility FAQ**: confirm whether you have DGR (Deductible Gift Recipient) status with the ATO and update the answer. Only DGR-endorsed organisations can offer tax-deductible receipts in Australia.
 7. **Photo permissions**: the photos and testimonial names came from your uploaded image collection; double-check you have permission to publish each one, especially images featuring school staff and students.
+8. **ACNC Charity Register link**: swap the Tick's Register search link for the direct listing URL (see "Registered Charity Tick" above).
 
 ## Taking donations: how to wire up payments
 
@@ -91,7 +120,7 @@ All of these give you a hosted donation page URL: paste it into the `any` fields
 
 ### A note on compliance
 
-Before actively fundraising, check your state's charitable fundraising licence requirements and register with the ACNC if you haven't already. Add your ABN and registration details to the footer; donors look for them.
+Before actively fundraising, check your state's charitable fundraising licence requirements. Amplify Schools is registered with the ACNC, and every page footer shows the ABN and the Registered Charity Tick; donors look for them.
 
 ## Publishing
 
@@ -103,3 +132,4 @@ Before actively fundraising, check your state's charitable fundraising licence r
 
 - Fonts: [Outfit](https://fonts.google.com/specimen/Outfit) and [Public Sans](https://fonts.google.com/specimen/Public+Sans) (OFL), self-hosted via Fontsource.
 - Icons: [Phosphor Icons](https://phosphoricons.com/) (MIT).
+- Registered Charity Tick: supplied by the [ACNC](https://www.acnc.gov.au/) to registered charities and used under its terms of use.
