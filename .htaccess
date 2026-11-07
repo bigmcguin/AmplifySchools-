@@ -1,0 +1,6 @@
+# Send http:// and www. to https://amplifyschools.org with a 301.
+# Hostinger already forces https at server level; this adds the www -> apex step.
+RewriteEngine On
+RewriteCond %{HTTPS} off [OR]
+RewriteCond %{HTTP_HOST} ^www\. [NC]
+RewriteRule ^ https://amplifyschools.org%{REQUEST_URI} [R=301,L]

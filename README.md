@@ -121,9 +121,12 @@ Before actively fundraising, check your state's charitable fundraising licence r
 
 ## Publishing
 
-**GitHub Pages** (free): repository Settings → Pages → deploy from the `main` branch, root folder. Then point the `amplifyschools.org` DNS at GitHub Pages and add the domain in the Pages settings (a `CNAME` file will be created automatically).
+**Live site** (`https://amplifyschools.org`): Hostinger, Cloud Startup plan. Hostinger's Git deployment (hPanel → amplifyschools.org → Advanced → GIT) is connected to this repository's `main` branch with auto-deploy on, so every push to `main` goes live in about a minute. It deploys into `public_html` and replaces whatever is there, so server settings live in the repository:
 
-**Netlify / Cloudflare Pages** (free): connect the repository, no build command needed, publish directory is the repository root.
+- `.htaccess` sends `http://` and `www.` to `https://amplifyschools.org/` with a 301.
+- `CNAME` sets the GitHub Pages custom domain to `amplifyschools.org`, so the GitHub Pages copy redirects to the real site.
+
+**GitHub Pages** also builds `main`. DNS points at Hostinger, not GitHub, so Pages only redirects to amplifyschools.org.
 
 ## Search engines (SEO)
 
@@ -137,7 +140,7 @@ If the site ever moves to `www.amplifyschools.org`, find and replace `https://am
 
 The favicon files (`favicon.ico` with 16, 32 and 48px sizes, `favicon.svg`, and `apple-touch-icon.png` for iPhone home screens) sit in the site root and are linked from every page. Google only shows a favicon that's a real file, so don't switch back to an inline `data:` icon.
 
-GitHub Pages also publishes a copy at `https://bigmcguin.github.io/AmplifySchools-/`. The canonical tags tell Google that amplifyschools.org is the real version, so the copy doesn't compete with it in search results. Serving the domain from one place is better still (see Publishing).
+`https://bigmcguin.github.io/AmplifySchools-/` (GitHub Pages) redirects to amplifyschools.org because of the `CNAME` file, and the canonical tags point there too, so there's only one version for Google to index.
 
 To keep an eye on rankings:
 
