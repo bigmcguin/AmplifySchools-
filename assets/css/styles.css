@@ -238,6 +238,13 @@ p { margin: 0 0 1em; max-width: 65ch; }
 }
 .hero-cinema h1 { color: #f6f9fb; margin-bottom: 0.4em; }
 .hero-cinema h1 .accent-word { color: #62c9d8; }
+/* Brand name as a small line above the headline. It sits inside the h1 so
+   search engines read "Amplify Schools: Putting rock instruments into..." */
+.hero-cinema h1 .hero-kicker {
+  display: block; margin-bottom: 0.9rem;
+  font-size: 1rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase;
+  color: #62c9d8;
+}
 .hero-cinema .lede { color: #ccd9e4; margin-bottom: 1.8rem; font-size: 1.2rem; }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 0.9rem; align-items: center; }
 

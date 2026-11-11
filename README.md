@@ -1,8 +1,10 @@
 # Amplify Schools website
 
-A fast, public-focused website for [amplifyschools.org](https://amplifyschools.org): a homepage that tells the story (refurbishing donated rock instruments and giving them to school music programs), and a donate page ready to take one-off and monthly donations, or instrument donations.
+Source for [amplifyschools.org](https://amplifyschools.org), the website of **Amplify Schools Incorporated**: an Australian registered charity ([ACNC Charity Register listing](https://www.acnc.gov.au/charity/charities/515e9afa-9e64-f111-a826-6045bde523ce/profile), ABN 32 761 982 262) that refurbishes donated rock instruments and gives them to school music programs.
 
-No build step, no framework. Plain HTML, CSS and JavaScript, so it can be hosted anywhere (GitHub Pages, Netlify, Cloudflare Pages) for free.
+To donate, register a school or get in touch, visit **[amplifyschools.org](https://amplifyschools.org)**.
+
+The site is plain HTML, CSS and JavaScript, with no build step or framework.
 
 ## Brand
 
@@ -13,9 +15,9 @@ Colours are taken from the Amplify Schools logo:
 
 Both are defined as CSS variables at the top of `assets/css/styles.css`, with dark mode equivalents. Display type is Archivo in heavy italic, echoing the logo's wordmark.
 
-The header and footer use a brand lockup: a recreated guitar outline (`assets/img/logo-guitar.svg`, drawn to match the logo's gradient stroke style) next to a typographic wordmark (stacked AMPLIFY / SCHOOLS). To use the original logo artwork instead, save it as a transparent SVG or PNG and swap it into the `.brand` links in both HTML files.
+The header and footer show the official logo: `assets/img/logo.svg`, with `assets/img/logo-dark.svg` swapped in for dark mode.
 
-When you change `styles.css` or `main.js`, bump the `?v=` number on their links in both HTML files so browsers and CDNs fetch the new version.
+When you change `styles.css` or `main.js`, bump the `?v=` number on their links in every HTML file so browsers and CDNs fetch the new version.
 
 ## Registered Charity Tick (ACNC)
 
@@ -48,6 +50,7 @@ Charity registration is separate from DGR (Deductible Gift Recipient) endorsemen
 index.html          Homepage (hero, mission, programs, tiers, impact, team, CTA)
 donate.html         Donate page (donation widget, other ways to give, FAQ)
 register.html       School registration (application form + eligibility)
+contact.html        Contact page (general enquiry form)
 assets/css/styles.css   All styling (light + dark mode, responsive)
 assets/js/main.js       Navigation, donation widget, registration form,
                         PAYMENT_LINKS and REGISTER_FORM_ENDPOINT config
@@ -55,6 +58,9 @@ assets/img/             Logo, photos (from the site's image collection) and
                         the ACNC Registered Charity Tick
 assets/fonts/           Self-hosted fonts (Archivo + Public Sans)
 assets/icons.svg        Icon sprite (Phosphor Icons, MIT licence)
+favicon.ico, favicon.svg, apple-touch-icon.png   Site icons
+robots.txt, sitemap.xml                          For search engines
+.htaccess, CNAME                                 Server settings (see Publishing)
 ```
 
 ## School registration form
@@ -76,17 +82,15 @@ python3 -m http.server 8000
 # then visit http://localhost:8000
 ```
 
-## Content to replace before launch
+## Content to keep up to date
 
-Search both HTML files for `EDIT ME` comments. In particular:
+Notes for whoever edits the site are marked with `EDIT ME` comments in the HTML. In particular:
 
-1. **Team roles**: the "Who we are" section shows Matthew, Vanessa and Hylton with a generic "Amplify Schools" line; replace it with each person's actual role.
-2. **Donation tiers**: the $40 / $150 / $500 amounts and descriptions are sensible guesses; adjust them to your real refurbishment costs.
-3. **Mission copy** in the "Why we exist" section: tune to your official wording.
-4. **Bank transfer details** on the donate page (BSB, account number).
-5. **Contact email and social links** in the footer. The ABN and the Registered Charity Tick are already in place.
-6. **Tax deductibility FAQ**: confirm whether you have DGR (Deductible Gift Recipient) status with the ATO and update the answer. Only DGR-endorsed organisations can offer tax-deductible receipts in Australia.
-7. **Photo permissions**: the photos and testimonial names came from your uploaded image collection; double-check you have permission to publish each one, especially images featuring school staff and students.
+1. **Donation tiers**: keep the $40 / $150 / $500 amounts and descriptions in line with real refurbishment costs.
+2. **Mission copy** in the "Why we exist" section: keep it in line with the charity's official wording.
+3. **Social links**: when the charity has public profiles, add them to the footer and to `sameAs` in the homepage JSON-LD.
+4. **Tax deductibility FAQ**: update the answer on the donate page once the ATO grants DGR (Deductible Gift Recipient) status. Only DGR-endorsed organisations can offer tax-deductible receipts in Australia.
+5. **Photo permissions**: make sure you have permission to publish each photo, especially images featuring school staff and students.
 
 ## Taking donations: how to wire up payments
 
@@ -125,6 +129,7 @@ Before actively fundraising, check your state's charitable fundraising licence r
 
 - `.htaccess` sends `http://` and `www.` to `https://amplifyschools.org/` with a 301.
 - `CNAME` sets the GitHub Pages custom domain to `amplifyschools.org`, so the GitHub Pages copy redirects to the real site.
+- Because the deploy copies the whole repository, `.htaccess` also refuses files that aren't part of the website (`README.md`, `CNAME`, `.claude/` and `.git/`), so search engines can't index them.
 
 **GitHub Pages** also builds `main`. DNS points at Hostinger, not GitHub, so Pages only redirects to amplifyschools.org.
 
@@ -150,8 +155,10 @@ To keep an eye on rankings:
 4. Check **Pages** for anything excluded, and **Security & Manual actions** for problems.
 5. Make sure the charity's ACNC Charity Register listing shows the website address, and ask partner schools to link to the site. Links from trusted sites help the most.
 
+Ranking for the name "Amplify Schools" is mostly decided off the site, because it competes with long-established names (Amplify Music Education, and the US company Amplify). The biggest levers are a Google Business Profile, social profiles that link to amplifyschools.org (add them to `sameAs` in the homepage JSON-LD), and links from schools, local media and charity directories that use the name "Amplify Schools".
+
 ## Credits
 
-- Fonts: [Outfit](https://fonts.google.com/specimen/Outfit) and [Public Sans](https://fonts.google.com/specimen/Public+Sans) (OFL), self-hosted via Fontsource.
+- Fonts: [Archivo](https://fonts.google.com/specimen/Archivo) and [Public Sans](https://fonts.google.com/specimen/Public+Sans) (OFL), self-hosted via Fontsource.
 - Icons: [Phosphor Icons](https://phosphoricons.com/) (MIT).
 - Registered Charity Tick: supplied by the [ACNC](https://www.acnc.gov.au/) to registered charities and used under its terms of use.
