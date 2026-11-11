@@ -88,7 +88,7 @@ Notes for whoever edits the site are marked with `EDIT ME` comments in the HTML.
 
 1. **Donation tiers**: keep the $40 / $150 / $500 amounts and descriptions in line with real refurbishment costs.
 2. **Mission copy** in the "Why we exist" section: keep it in line with the charity's official wording.
-3. **Social links**: Instagram ([@amplifyschools](https://www.instagram.com/amplifyschools/)) is in every page footer and in `sameAs` in the homepage JSON-LD. Add any new profiles in both places.
+3. **Social links**: Instagram ([@amplifyschools](https://www.instagram.com/amplifyschools/)) and [LinkedIn](https://www.linkedin.com/company/amplify-schools/) are in every page footer and in `sameAs` in the homepage JSON-LD. Add any new profiles in both places.
 4. **Tax deductibility FAQ**: update the answer on the donate page once the ATO grants DGR (Deductible Gift Recipient) status. Only DGR-endorsed organisations can offer tax-deductible receipts in Australia.
 5. **Photo permissions**: make sure you have permission to publish each photo, especially images featuring school staff and students.
 
