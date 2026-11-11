@@ -1,0 +1,493 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<title>Amplify Schools brand guidelines</title>
+<style>
+@font-face{font-family:Archivo;font-style:normal;font-weight:100 900;src:url(../../assets/fonts/archivo-latin-wght-normal.woff2) format("woff2-variations")}
+@font-face{font-family:Archivo;font-style:italic;font-weight:100 900;src:url(../../assets/fonts/archivo-latin-wght-italic.woff2) format("woff2-variations")}
+@font-face{font-family:"Public Sans";font-style:normal;font-weight:100 900;src:url(../../assets/fonts/public-sans-latin-wght-normal.woff2) format("woff2-variations")}
+@font-face{font-family:"Public Sans";font-style:italic;font-weight:100 900;src:url(../../assets/fonts/public-sans-latin-wght-italic.woff2) format("woff2-variations")}
+@page{size:297mm 210mm;margin:0}
+:root{--navy:#1c3e66;--teal:#0b7488;--deep:#14263e;--ink:#16283c;--slate:#435a70;--mist:#d9e2ea;--cloud:#f5f8fa;--tint:#e2f1f4;--no:#b3261e}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+body{font-family:"Public Sans",sans-serif;font-size:11pt;line-height:1.5;color:var(--ink);counter-reset:pg}
+.page{width:297mm;height:210mm;position:relative;overflow:hidden;page-break-after:always;padding:15mm 18mm 18mm;background:#fff;counter-increment:pg}
+.page:last-child{page-break-after:auto}
+.kicker{font-size:8pt;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--teal);margin-bottom:2mm}
+h1{font-family:Archivo;font-style:italic;font-weight:800;font-size:27pt;line-height:1.08;letter-spacing:-.01em;color:var(--navy);margin-bottom:3mm}
+.lede{font-size:12pt;color:var(--slate);max-width:190mm;margin-bottom:7mm}
+h2{font-family:Archivo;font-weight:700;font-size:12pt;color:var(--navy);margin-bottom:1.5mm}
+h3{font-size:8pt;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--slate);margin-bottom:2mm}
+p{margin-bottom:2.5mm}
+ul{list-style:none}
+ul li{position:relative;padding-left:5mm;margin-bottom:1.6mm}
+ul li::before{content:"";position:absolute;left:0;top:.62em;width:2mm;height:2mm;border-radius:50%;background:var(--teal)}
+ul.no li::before{background:var(--no)}
+.foot{position:absolute;left:18mm;right:18mm;bottom:8mm;display:flex;justify-content:space-between;font-size:7.5pt;color:var(--slate);border-top:.3mm solid var(--mist);padding-top:2.5mm}
+.foot .n::after{content:counter(pg)}
+.grid{display:grid;gap:8mm}
+.g2{grid-template-columns:1fr 1fr}.g3{grid-template-columns:repeat(3,1fr)}
+.card{background:var(--cloud);border:.3mm solid var(--mist);border-radius:3mm;padding:5mm}
+.card.tint{background:var(--tint);border-color:#c9e3e9}
+.small{font-size:9pt;color:var(--slate)}
+.mono{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:8.5pt}
+b,strong{font-weight:700;color:var(--navy)}
+/* cover */
+.cover{background:var(--navy);color:#fff;padding:0;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;padding-left:30mm}
+.cover img{width:120mm;margin-bottom:16mm}
+.cover .t{font-family:Archivo;font-style:italic;font-weight:800;font-size:44pt;line-height:1;letter-spacing:-.01em}
+.cover .s{margin-top:6mm;font-size:13pt;color:#cfe0ea}
+.cover .bar{position:absolute;left:0;top:0;bottom:0;width:10mm;background:var(--teal)}
+.cover .v{position:absolute;left:30mm;bottom:16mm;font-size:9pt;color:#b9cddb;letter-spacing:.04em}
+/* short version */
+.rule{display:flex;gap:4mm;align-items:flex-start}
+.rule .num{flex:none;width:9mm;height:9mm;border-radius:50%;background:var(--navy);color:#fff;font-family:Archivo;font-style:italic;font-weight:800;font-size:11pt;display:grid;place-items:center}
+.rule p{margin:0}
+/* logo */
+.stage{border-radius:3mm;display:grid;place-items:center;border:.3mm solid var(--mist)}
+.stage.white{background:#fff}.stage.navy{background:var(--navy);border-color:var(--navy)}.stage.teal{background:var(--teal);border-color:var(--teal)}.stage.cloud{background:var(--cloud)}
+.cap{font-size:9pt;color:var(--slate);margin-top:2mm}
+.cap b{color:var(--ink)}
+/* misuse */
+.bad{position:relative;height:44mm;border:.3mm solid var(--mist);border-radius:3mm;background:#fff;display:grid;place-items:center;overflow:hidden}
+.x{position:absolute;right:3mm;top:3mm;width:7mm;height:7mm;border-radius:50%;background:var(--no);color:#fff;display:grid;place-items:center;font-weight:800;font-size:10pt;line-height:1}
+/* colour */
+.sw{border-radius:3mm;padding:5mm;color:#fff;display:flex;flex-direction:column;justify-content:flex-end}
+.sw .nm{font-family:Archivo;font-style:italic;font-weight:800;font-size:17pt;line-height:1.1}
+.sw .vals{font-size:8.5pt;line-height:1.55;margin-top:2mm;opacity:.95}
+.mini{border-radius:2.5mm;padding:3mm;height:27mm;display:flex;flex-direction:column;justify-content:flex-end;font-size:7.5pt;line-height:1.4;border:.3mm solid var(--mist)}
+.mini b{font-size:9pt;color:inherit}
+.pair{display:flex;align-items:center;gap:3mm;border-radius:2mm;padding:2mm 3mm;font-size:9pt;font-weight:600;margin-bottom:1.6mm}
+.pair span{margin-left:auto;font-weight:400;font-size:8pt}
+/* type */
+.spec{font-family:Archivo;font-style:italic;font-weight:800;font-size:30pt;line-height:1.05;color:var(--navy);letter-spacing:-.01em}
+table{border-collapse:collapse;width:100%}
+th{font-size:7.5pt;letter-spacing:.12em;text-transform:uppercase;color:var(--slate);text-align:left;padding:0 3mm 2mm 0;border-bottom:.4mm solid var(--navy)}
+td{padding:2.6mm 3mm 2.6mm 0;border-bottom:.3mm solid var(--mist);vertical-align:top;font-size:10pt}
+td.yes{color:var(--ink)}td.nope{color:var(--slate)}
+.tag{display:inline-block;font-size:7pt;font-weight:700;letter-spacing:.1em;text-transform:uppercase;border-radius:1mm;padding:.6mm 2mm;color:#fff;margin-bottom:1.5mm}
+.tag.do{background:var(--teal)}.tag.dont{background:var(--no)}
+</style>
+</head>
+<body>
+
+<!-- 1 COVER -->
+<section class="page cover">
+  <div class="bar"></div>
+  <img src="../logos/amplify-schools-logo-white.png" alt="Amplify Schools">
+  <div class="t">Brand guidelines</div>
+  <div class="s">How we look, sound and show up, from letterheads to school stages.</div>
+  <div class="v">Version 1.0 &nbsp;|&nbsp; November 2026</div>
+</section>
+
+<!-- 2 SHORT VERSION -->
+<section class="page">
+  <div class="kicker">Start here</div>
+  <h1>The short version</h1>
+  <p class="lede">If you only read one page, read this one. These six rules cover most of what you'll make for Amplify Schools.</p>
+  <div class="grid g3" style="gap:6mm">
+    <div class="card"><div class="rule"><div class="num">1</div><div><h2>Say our name in full</h2><p>We're <b>Amplify Schools</b>. Two words, both with capitals. Not "Amplify" and not "AS".</p></div></div></div>
+    <div class="card"><div class="rule"><div class="num">2</div><div><h2>Use the logo files as they are</h2><p>Pick the colour, white or navy version from the logo folder. Never redraw, recolour, stretch or crop it.</p></div></div></div>
+    <div class="card"><div class="rule"><div class="num">3</div><div><h2>Navy, teal and plenty of white</h2><p>Navy does the heavy lifting. Teal is the accent for buttons, links and highlights. White space keeps it clean.</p></div></div></div>
+    <div class="card"><div class="rule"><div class="num">4</div><div><h2>Three fonts, three jobs</h2><p>Archivo for headlines. Public Sans for reading text. Arial in Word, Google Docs and email.</p></div></div></div>
+    <div class="card"><div class="rule"><div class="num">5</div><div><h2>Warm, plain, a bit rock and roll</h2><p>Write the way a friendly music teacher talks. Short sentences, real details, Australian spelling.</p></div></div></div>
+    <div class="card"><div class="rule"><div class="num">6</div><div><h2>Real gear, real schools</h2><p>Use real photos of instruments, workshops and handovers, and get permission before showing students or staff.</p></div></div></div>
+  </div>
+  <div class="card tint" style="margin-top:7mm;display:flex;gap:8mm;align-items:center">
+    <div style="flex:none;font-family:Archivo;font-style:italic;font-weight:800;font-size:15pt;color:var(--navy);line-height:1.15;width:92mm">Putting rock instruments into school music rooms.</div>
+    <p style="margin:0">That's our tagline, and it's the test for everything we make. If a flyer, post or letter doesn't help get an instrument into a student's hands, simplify it until it does.</p>
+  </div>
+  <div class="foot"><span>Amplify Schools brand guidelines</span><span class="n"></span></div>
+</section>
+
+<!-- 3 NAME AND STORY -->
+<section class="page">
+  <div class="kicker">Who we are</div>
+  <h1>Our name and story</h1>
+  <p class="lede">Use these words when you introduce us. Copy them as they are so we describe ourselves the same way everywhere.</p>
+  <div class="grid" style="grid-template-columns:1.15fr 1fr">
+    <div>
+      <h3>How to describe us</h3>
+      <table>
+        <tr><td style="width:34mm"><b>Tagline</b></td><td>Putting rock instruments into school music rooms.</td></tr>
+        <tr><td><b>One sentence</b></td><td>Amplify Schools is an Australian registered charity that refurbishes donated rock instruments and gives them to school music programs.</td></tr>
+        <tr><td><b>Short paragraph</b></td><td>Plenty of great instruments sit unused in garages and spare rooms while school music programs make do with tired, broken gear. Amplify Schools collects donated guitars, basses, drums, keyboards and amps, restores them properly, and gives them to schools so more students get to plug in, play and perform.</td></tr>
+        <tr><td><b>What we do, in three steps</b></td><td>Rescue and refurbish. Give to schools. Partner and play.</td></tr>
+      </table>
+    </div>
+    <div>
+      <h3>How to write our name</h3>
+      <table>
+        <tr><td style="width:40mm"><b>Everyday use</b></td><td>Amplify Schools</td></tr>
+        <tr><td><b>Legal and formal</b></td><td>Amplify Schools Incorporated<br><span class="small">Letterhead, receipts, agreements and grant applications. "Amplify Schools Inc." is fine where space is tight.</span></td></tr>
+        <tr><td><b>Website</b></td><td>amplifyschools.org<br><span class="small">Lower case, no "www".</span></td></tr>
+        <tr><td><b>Social media</b></td><td>@amplifyschools</td></tr>
+        <tr><td><b>Email</b></td><td>backstage@amplifyschools.org</td></tr>
+        <tr><td><b>ABN</b></td><td>32 761 982 262<br><span class="small">Written with spaces, in groups of 2, 3, 3 and 3.</span></td></tr>
+      </table>
+      <div class="card" style="margin-top:5mm;padding:4mm">
+        <span class="tag dont">Avoid</span>
+        <p style="margin:0">"Amplify" on its own, "AS", "AmplifySchools" as one word (except in the web address and handle), and "AMPLIFY SCHOOLS" in capitals in running text.</p>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span>Amplify Schools brand guidelines</span><span class="n"></span></div>
+</section>
+
+<!-- 4 LOGO -->
+<section class="page">
+  <div class="kicker">Logo</div>
+  <h1>Our logo</h1>
+  <p class="lede">An electric guitar outline beside a bold italic wordmark. It's the one thing that should look identical everywhere, so always use the supplied files.</p>
+  <div class="grid" style="grid-template-columns:1.25fr 1fr;gap:8mm">
+    <div>
+      <div class="stage white" style="height:86mm"><img src="../logos/amplify-schools-logo-colour.png" style="width:118mm"></div>
+      <div class="cap"><b>Colour logo.</b> Our first choice. Use it on white or very light backgrounds.</div>
+    </div>
+    <div class="grid" style="gap:5mm;align-content:start">
+      <div class="grid g2" style="gap:5mm">
+        <div><div class="stage navy" style="height:38mm"><img src="../logos/amplify-schools-logo-white.png" style="width:48mm"></div><div class="cap"><b>White logo.</b> On navy, teal or dark photos.</div></div>
+        <div><div class="stage white" style="height:38mm"><img src="../logos/amplify-schools-logo-navy.png" style="width:48mm"></div><div class="cap"><b>Navy logo.</b> For one-colour printing, stamps and engraving.</div></div>
+      </div>
+      <div style="display:flex;gap:5mm;align-items:center">
+        <img src="../../favicon.svg" style="width:16mm;height:16mm;flex:none">
+        <div class="cap" style="margin:0"><b>The "A" icon.</b> Only for tiny spaces where the full logo can't be read, such as a browser tab or app icon.</div>
+      </div>
+      <div class="card" style="padding:4mm">
+        <h3>Which file to use</h3>
+        <p class="small" style="margin:0;color:var(--ink)"><b>PNG</b> for Word, Google Docs, PowerPoint, Canva, email and social media.<br><b>SVG</b> for the website and for printers and designers, because it stays sharp at any size.</p>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span>Amplify Schools brand guidelines</span><span class="n"></span></div>
+</section>
+
+<!-- 5 LOGO SPACE AND SIZE -->
+<section class="page">
+  <div class="kicker">Logo</div>
+  <h1>Space, size and placement</h1>
+  <p class="lede">Give the logo room to breathe and keep it big enough to read.</p>
+  <div class="grid" style="grid-template-columns:1.1fr 1fr;gap:10mm">
+    <div>
+      <h3>Clear space</h3>
+      <div style="position:relative;width:135.4mm;height:90.4mm;background:var(--cloud);border-radius:3mm;border:.3mm solid var(--mist)">
+        <div style="position:absolute;left:10mm;top:8mm;width:115.4mm;height:74.4mm;border:.35mm dashed var(--teal)"></div>
+        <div style="position:absolute;left:22.7mm;top:20.7mm;width:90mm;height:49mm;outline:.25mm solid #9fb3c4"></div>
+        <img src="../logos/amplify-schools-logo-colour.png" style="position:absolute;left:22.7mm;top:20.7mm;width:90mm;height:49mm">
+        <div style="position:absolute;left:10mm;top:8mm;width:12.7mm;height:12.7mm;background:#bfe0e7;display:grid;place-items:center;font-weight:700;font-size:8pt;color:var(--teal)">A</div>
+        <div style="position:absolute;left:112.7mm;top:69.7mm;width:12.7mm;height:12.7mm;background:#bfe0e7;display:grid;place-items:center;font-weight:700;font-size:8pt;color:var(--teal)">A</div>
+      </div>
+      <p class="cap" style="max-width:135mm">Keep a margin on every side at least as tall as the letter <b>A</b> in "AMPLIFY". Nothing else goes inside the dashed line: no text, no other logos, no page edges.</p>
+    </div>
+    <div>
+      <h3>Smallest size</h3>
+      <div style="display:flex;gap:8mm;align-items:flex-end;margin-bottom:2mm">
+        <div><img src="../logos/amplify-schools-logo-colour.png" style="width:25mm;display:block"><div class="cap">Print: 25 mm wide</div></div>
+        <div><img src="../logos/amplify-schools-logo-colour.png" style="width:96px;display:block"><div class="cap">Screen: 96 pixels wide</div></div>
+      </div>
+      <p class="small" style="margin-bottom:6mm">Any smaller and "SCHOOLS" becomes hard to read. Use the "A" icon instead.</p>
+      <h3>Placement</h3>
+      <ul>
+        <li>Top left is the default, as on the website and letterhead.</li>
+        <li>Centre it only when it stands alone, such as on a cover, banner or profile picture.</li>
+        <li>Use one logo per page or screen. Repeating it weakens it.</li>
+        <li>Beside a partner's logo, keep both the same visual height with clear space between them.</li>
+      </ul>
+      <h3 style="margin-top:5mm">Backgrounds</h3>
+      <div class="grid" style="grid-template-columns:repeat(4,1fr);gap:3mm">
+        <div class="stage white" style="height:17mm"><img src="../logos/amplify-schools-logo-colour.png" style="width:22mm"></div>
+        <div class="stage cloud" style="height:17mm"><img src="../logos/amplify-schools-logo-colour.png" style="width:22mm"></div>
+        <div class="stage navy" style="height:17mm"><img src="../logos/amplify-schools-logo-white.png" style="width:22mm"></div>
+        <div class="stage teal" style="height:17mm"><img src="../logos/amplify-schools-logo-white.png" style="width:22mm"></div>
+      </div>
+      <p class="cap">Colour logo on white or pale grey. White logo on navy or teal.</p>
+    </div>
+  </div>
+  <div class="foot"><span>Amplify Schools brand guidelines</span><span class="n"></span></div>
+</section>
+
+<!-- 6 LOGO MISUSE -->
+<section class="page">
+  <div class="kicker">Logo</div>
+  <h1>What not to do</h1>
+  <p class="lede">The logo only works if it always looks the same. These are the mistakes that creep in most often.</p>
+  <div class="grid g3" style="gap:6mm">
+    <div><div class="bad"><div class="x">✕</div><img src="../logos/amplify-schools-logo-colour.png" style="width:78mm;height:22mm"></div><div class="cap"><b>Don't stretch or squash it.</b> Hold Shift while resizing so it keeps its shape.</div></div>
+    <div><div class="bad"><div class="x">✕</div><img src="../logos/amplify-schools-logo-colour.png" style="width:56mm;filter:hue-rotate(150deg) saturate(2.2)"></div><div class="cap"><b>Don't change the colours.</b> Use the colour, white or navy file.</div></div>
+    <div><div class="bad"><div class="x">✕</div><img src="../logos/amplify-schools-logo-colour.png" style="width:52mm;transform:rotate(-14deg)"></div><div class="cap"><b>Don't rotate or tilt it.</b> The italic lettering already has movement.</div></div>
+    <div><div class="bad"><div class="x">✕</div><img src="../logos/amplify-schools-logo-colour.png" style="width:56mm;filter:drop-shadow(2mm 2mm 1.2mm rgba(0,0,0,.55))"></div><div class="cap"><b>Don't add effects.</b> No shadows, glows, outlines or gradients.</div></div>
+    <div><div class="bad" style="background:var(--teal)"><div class="x">✕</div><img src="../logos/amplify-schools-logo-colour.png" style="width:56mm"></div><div class="cap"><b>Don't use the colour logo on colour.</b> Switch to the white logo so it stays readable.</div></div>
+    <div><div class="bad"><div class="x">✕</div><div style="width:42mm;height:26mm;overflow:hidden"><img src="../logos/amplify-schools-logo-colour.png" style="width:66mm;margin-left:-18mm;margin-top:-10mm"></div></div><div class="cap"><b>Don't crop it or pull it apart.</b> The guitar and the words always stay together.</div></div>
+  </div>
+  <div class="foot"><span>Amplify Schools brand guidelines</span><span class="n"></span></div>
+</section>
+
+<!-- 7 COLOUR -->
+<section class="page">
+  <div class="kicker">Colour</div>
+  <h1>Our colours</h1>
+  <p class="lede">Two brand colours, taken from the logo, on plenty of white. Use the exact values below so we match across screen and print.</p>
+  <div class="grid" style="grid-template-columns:1.45fr 1fr;gap:9mm">
+    <div>
+      <div class="grid g2" style="gap:5mm">
+        <div class="sw" style="background:var(--navy);height:52mm"><div class="nm">Amplify Navy</div><div class="vals">HEX #1C3E66<br>RGB 28, 62, 102<br>CMYK 73, 39, 0, 60</div></div>
+        <div class="sw" style="background:var(--teal);height:52mm"><div class="nm">Amplify Teal</div><div class="vals">HEX #0B7488<br>RGB 11, 116, 136<br>CMYK 92, 15, 0, 47</div></div>
+      </div>
+      <h3 style="margin-top:6mm">Supporting colours</h3>
+      <div class="grid" style="grid-template-columns:repeat(6,1fr);gap:3mm">
+        <div class="mini" style="background:#14263e;color:#fff;border-color:#14263e"><b>Deep Navy</b>#14263E</div>
+        <div class="mini" style="background:#16283c;color:#fff;border-color:#16283c"><b>Ink</b>#16283C</div>
+        <div class="mini" style="background:#435a70;color:#fff;border-color:#435a70"><b>Slate</b>#435A70</div>
+        <div class="mini" style="background:#d9e2ea"><b>Mist</b>#D9E2EA</div>
+        <div class="mini" style="background:#e2f1f4"><b>Teal Tint</b>#E2F1F4</div>
+        <div class="mini" style="background:#f5f8fa"><b>Cloud</b>#F5F8FA</div>
+      </div>
+      <p class="small" style="margin-top:3mm">Ink is for body text. Slate is for captions and small print. Mist is for lines and borders. Teal Tint and Cloud are for panels and page backgrounds.</p>
+      <p class="small">CMYK values are a starting point for print. Ask your printer for a proof before a large run.</p>
+    </div>
+    <div>
+      <h3>How much of each</h3>
+      <div style="display:flex;height:9mm;border-radius:2mm;overflow:hidden;border:.3mm solid var(--mist);margin-bottom:2mm">
+        <div style="flex:60;background:#fff"></div><div style="flex:25;background:var(--navy)"></div><div style="flex:10;background:var(--teal)"></div><div style="flex:5;background:var(--slate)"></div>
+      </div>
+      <p class="small" style="margin-bottom:5mm">Mostly white and pale backgrounds, navy for headings and solid bands, and a little teal for the things we want people to notice or click.</p>
+      <h3>Colour pairs that are easy to read</h3>
+      <div class="pair" style="background:var(--navy);color:#fff">White on Navy<span>Any size</span></div>
+      <div class="pair" style="background:var(--teal);color:#fff">White on Teal<span>Any size</span></div>
+      <div class="pair" style="background:#fff;color:var(--navy);border:.3mm solid var(--mist)">Navy on White<span>Any size</span></div>
+      <div class="pair" style="background:#fff;color:var(--teal);border:.3mm solid var(--mist)">Teal on White<span>Any size</span></div>
+      <div class="pair" style="background:var(--tint);color:var(--navy)">Navy on Teal Tint<span>Any size</span></div>
+      <div class="pair" style="background:var(--navy);color:var(--teal)">Teal on Navy<span style="color:#fff">Never: too hard to read</span></div>
+      <p class="small" style="margin-top:3mm">The first five pairs meet the WCAG AA standard for readable text. The logo artwork carries its own slightly brighter shades, so never recolour it to match these values.</p>
+    </div>
+  </div>
+  <div class="foot"><span>Amplify Schools brand guidelines</span><span class="n"></span></div>
+</section>
+
+<!-- 8 TYPE -->
+<section class="page">
+  <div class="kicker">Typography</div>
+  <h1>Our fonts</h1>
+  <p class="lede">Two brand fonts, both free from Google Fonts, plus Arial for everyday documents where the brand fonts aren't installed.</p>
+  <div class="grid g3" style="gap:6mm;margin-bottom:6mm">
+    <div class="card">
+      <h3>Headlines</h3>
+      <div class="spec">Plug in, play and perform.</div>
+      <p class="small" style="margin:3mm 0 0"><b>Archivo ExtraBold Italic.</b> Echoes the logo's lettering. Use it for headlines and big numbers only.</p>
+    </div>
+    <div class="card">
+      <h3>Reading text</h3>
+      <p style="font-size:11pt;line-height:1.5;margin:0">We collect donated rock instruments, restore them properly, and give them to schools so more students get to play.</p>
+      <p class="small" style="margin:3mm 0 0"><b>Public Sans Regular.</b> Clear and friendly at any size. Use SemiBold or Bold for emphasis, buttons and links.</p>
+    </div>
+    <div class="card">
+      <h3>Everyday documents</h3>
+      <p style="font-family:Arial,Helvetica,sans-serif;font-size:11pt;line-height:1.5;margin:0">Thanks for registering your school. We'll be in touch as soon as we have gear that suits your program.</p>
+      <p class="small" style="margin:3mm 0 0"><b>Arial.</b> For Word, Google Docs and email, because it's on every computer. The letterhead template uses it.</p>
+    </div>
+  </div>
+  <div class="grid" style="grid-template-columns:1.5fr 1fr;gap:9mm">
+    <table>
+      <tr><th style="width:30mm">Use</th><th>Font</th><th style="width:34mm">Size (print)</th><th style="width:26mm">Colour</th></tr>
+      <tr><td><b>Headline</b></td><td>Archivo ExtraBold Italic</td><td>24 pt and up</td><td>Navy or white</td></tr>
+      <tr><td><b>Subheading</b></td><td>Archivo Bold</td><td>12 to 16 pt</td><td>Navy</td></tr>
+      <tr><td><b>Body text</b></td><td>Public Sans Regular</td><td>10 to 11 pt</td><td>Ink</td></tr>
+      <tr><td><b>Small print</b></td><td>Public Sans Regular</td><td>8 to 9 pt</td><td>Slate</td></tr>
+      <tr><td><b>Buttons, links</b></td><td>Public Sans SemiBold</td><td>Same as body</td><td>Teal or white</td></tr>
+    </table>
+    <div>
+      <h3>Type rules</h3>
+      <ul>
+        <li>Write headlines in sentence case, not Title Case or ALL CAPS.</li>
+        <li>Align text left. Centre only short headlines.</li>
+        <li>On screens, keep body text at 16 pixels or larger.</li>
+        <li>Don't use Archivo italic for paragraphs. It's for short lines only.</li>
+        <li>Don't add other fonts, even for special occasions.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot"><span>Amplify Schools brand guidelines</span><span class="n"></span></div>
+</section>
+
+<!-- 9 VOICE -->
+<section class="page">
+  <div class="kicker">Voice</div>
+  <h1>How we sound</h1>
+  <p class="lede">We sound like the people we are: music lovers who fix guitars and get them to schools. Friendly, clear and never corporate.</p>
+  <div class="grid" style="grid-template-columns:1fr 1.25fr;gap:9mm">
+    <div>
+      <div style="margin-bottom:4mm"><h2>Warm</h2><p>Talk to one person. Use "we" and "you". Say thanks often and mean it.</p></div>
+      <div style="margin-bottom:4mm"><h2>Plain</h2><p>Short sentences and everyday words. Say exactly what happens to a donated guitar, and skip the jargon.</p></div>
+      <div style="margin-bottom:4mm"><h2>A bit rock and roll</h2><p>A little band talk goes a long way: "Meet the band", "backstage", "keeping the amps humming". One riff per page is plenty.</p></div>
+      <div><h2>Respectful</h2><p>Schools, teachers and students are partners. We talk about what they can do with the gear, not what they lack.</p></div>
+    </div>
+    <div>
+      <table>
+        <tr><th style="width:50%">Say this</th><th>Not this</th></tr>
+        <tr><td class="yes">We refurbish donated guitars and give them to schools.</td><td class="nope">We leverage pre-loved assets to drive educational outcomes.</td></tr>
+        <tr><td class="yes">Got a guitar gathering dust?</td><td class="nope">DONATE NOW to change a child's life forever!!!</td></tr>
+        <tr><td class="yes">Schools that need gear</td><td class="nope">Needy or underprivileged schools</td></tr>
+        <tr><td class="yes">Refurbished instruments</td><td class="nope">Second-hand or used instruments</td></tr>
+        <tr><td class="yes">Donations are not currently tax deductible.</td><td class="nope">Any wording that suggests a tax deduction, until we have DGR status</td></tr>
+      </table>
+      <div class="card" style="margin-top:5mm;padding:4mm">
+        <h3>House style</h3>
+        <p class="small" style="margin:0;color:var(--ink)"><b>Spelling:</b> Australian English (organise, colour, program). &nbsp;<b>Dates:</b> 11 November 2026. &nbsp;<b>Money:</b> $40, $150, $500. &nbsp;<b>Measurements:</b> metric. &nbsp;<b>Instruments:</b> guitars, basses, drums, keys and amps. &nbsp;<b>Exclamation marks:</b> one at most, and rarely.</p>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span>Amplify Schools brand guidelines</span><span class="n"></span></div>
+</section>
+
+<!-- 10 PHOTOS -->
+<section class="page">
+  <div class="kicker">Photography</div>
+  <h1>Photos</h1>
+  <p class="lede">Real photos of real gear and real people are the most convincing thing we have. A phone photo of an actual handover beats a polished picture of nothing in particular.</p>
+  <div class="grid" style="grid-template-columns:70mm 1fr 1fr;gap:9mm">
+    <div>
+      <div style="height:98mm;border-radius:3mm;background:url(../../assets/img/impact-nvhs.jpg) center 35%/cover"></div>
+      <div class="cap">A real handover at Narara Valley High School: the instrument, the people and the place, all in one shot.</div>
+    </div>
+    <div>
+      <span class="tag do">Do</span>
+      <ul>
+        <li>Show the instruments: on the workbench, in their cases, in students' hands.</li>
+        <li>Capture the three moments of our story: gear arriving, gear being fixed, gear being handed over.</li>
+        <li>Take before and after shots of refurbishments.</li>
+        <li>Use natural light and get close. Faces and hands tell the story.</li>
+        <li>Name the school and the people in the caption when you have their permission.</li>
+        <li>Keep the original, full-size file.</li>
+      </ul>
+    </div>
+    <div>
+      <span class="tag dont">Don't</span>
+      <ul class="no">
+        <li>Don't publish a photo of a student without written consent from the school and a parent or guardian.</li>
+        <li>Don't publish photos of staff or volunteers without asking them first.</li>
+        <li>Don't use stock photos to stand in for our own work.</li>
+        <li>Don't present an AI-generated or illustrative image as a real school, student or event. Where a real photo exists, use it.</li>
+        <li>Don't add heavy filters, borders or text over faces.</li>
+      </ul>
+      <div class="card" style="padding:4mm;margin-top:4mm"><p class="small" style="margin:0;color:var(--ink)"><b>Keep a record.</b> Note who gave permission, for which photos, and when. If someone asks us to take a photo down, do it straight away.</p></div>
+    </div>
+  </div>
+  <div class="foot"><span>Amplify Schools brand guidelines</span><span class="n"></span></div>
+</section>
+
+<!-- 11 CHARITY -->
+<section class="page">
+  <div class="kicker">Trust marks</div>
+  <h1>Our charity details</h1>
+  <p class="lede">Donors and schools look for proof that we're a genuine charity. Show these details clearly and word them the same way every time.</p>
+  <div class="grid" style="grid-template-columns:1fr 1.2fr;gap:10mm">
+    <div>
+      <h3>The Registered Charity Tick</h3>
+      <div class="grid g2" style="gap:5mm;margin-bottom:3mm">
+        <div class="stage white" style="height:42mm"><img src="../../assets/img/acnc-charity-tick.webp" style="width:28mm"></div>
+        <div class="stage navy" style="height:42mm"><img src="../../assets/img/acnc-charity-tick-dark.webp" style="width:28mm"></div>
+      </div>
+      <p class="small">The Tick belongs to the ACNC (Australian Charities and Not-for-profits Commission). We can use it while we stay registered, and only under the ACNC's rules:</p>
+      <ul>
+        <li>Never recolour, redraw, stretch or add effects to it.</li>
+        <li>Keep it at least 15 mm wide in print, or 57 pixels on screen.</li>
+        <li>Leave 5 mm (19 pixels) of clear space around it.</li>
+        <li>Online, link it to our listing on the ACNC Charity Register.</li>
+        <li>Use the colour Tick on light backgrounds and the white Tick on dark ones.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Standard wording</h3>
+      <table>
+        <tr><td style="width:42mm"><b>Footer line</b><br><span class="small">Letters, flyers, emails, receipts</span></td><td>Amplify Schools Incorporated | ABN 32 761 982 262 | Registered charity</td></tr>
+        <tr><td><b>Registration</b></td><td>Amplify Schools is registered as a charity with the Australian Charities and Not-for-profits Commission (ACNC).</td></tr>
+        <tr><td><b>Tax deductibility</b><br><span class="small">Anywhere we ask for money</span></td><td>Donations are not currently tax deductible.</td></tr>
+      </table>
+      <div class="card tint" style="margin-top:5mm;padding:4mm">
+        <h2>Being a charity is not the same as being tax deductible</h2>
+        <p style="margin:0">Only organisations the ATO has endorsed as a Deductible Gift Recipient (DGR) can offer tax-deductible receipts. Until we have that endorsement, never write "tax deductible" or "tax-deductible receipt" in an appeal, post or receipt. When our status changes, update this page first.</p>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span>Amplify Schools brand guidelines</span><span class="n"></span></div>
+</section>
+
+<!-- 12 IN USE -->
+<section class="page">
+  <div class="kicker">In use</div>
+  <h1>The brand at work</h1>
+  <p class="lede">Templates and examples that already follow these guidelines. Start from these rather than a blank page.</p>
+  <div class="grid" style="grid-template-columns:62mm 1fr 1fr;gap:9mm">
+    <div>
+      <h3>Letterhead</h3>
+      <img src="letterhead-preview.png" style="width:62mm;display:block;border:.3mm solid var(--mist);box-shadow:0 1mm 3mm rgba(22,40,60,.12)">
+      <div class="cap">Word template. Logo top left, legal details top right, contact line and Charity Tick in the footer.</div>
+    </div>
+    <div>
+      <h3>Email signature</h3>
+      <div style="border:.3mm solid var(--mist);border-radius:3mm;padding:6mm;font-family:Arial,Helvetica,sans-serif">
+        <div style="font-size:11pt;font-weight:700;color:var(--navy)">Your Name</div>
+        <div style="font-size:9.5pt;color:var(--ink)">Your role | Amplify Schools</div>
+        <div style="font-size:9.5pt;color:var(--ink);margin-top:2mm">0482 693 230<br><span style="color:var(--teal);font-weight:700">amplifyschools.org</span></div>
+        <img src="../logos/amplify-schools-logo-colour.png" style="width:36mm;display:block;margin:4mm 0 3mm">
+        <div style="font-size:7.5pt;color:var(--slate);border-top:.3mm solid var(--mist);padding-top:2mm">Amplify Schools Incorporated | ABN 32 761 982 262 | Registered charity</div>
+      </div>
+      <div class="cap">Arial, with name in navy bold. Keep it to these lines: no quotes, banners or extra colours.</div>
+    </div>
+    <div>
+      <h3>Social media and Google</h3>
+      <div style="display:flex;gap:4mm;align-items:center;margin-bottom:4mm">
+        <img src="../../gbp-images/01-logo-1080.png" style="width:22mm;height:22mm;border-radius:50%;border:.3mm solid var(--mist)">
+        <div class="cap" style="margin:0"><b>Profile picture.</b> The colour logo on white, with enough margin to survive a round crop.</div>
+      </div>
+      <img src="../../gbp-images/02-cover-1920x1080.jpg" style="width:72%;display:block;border-radius:2mm">
+      <div class="cap" style="margin-bottom:3mm"><b>Cover image.</b> White logo and tagline on navy, centred.</div>
+      <img src="../../gbp-images/04-post-donate-gear.jpg" style="width:50%;display:block;border-radius:2mm">
+      <div class="cap"><b>Post.</b> Real photo, a short headline, one clear thing to do.</div>
+    </div>
+  </div>
+  <div class="foot"><span>Amplify Schools brand guidelines</span><span class="n"></span></div>
+</section>
+
+<!-- 13 FILES AND CHECKLIST -->
+<section class="page">
+  <div class="kicker">Toolkit</div>
+  <h1>Files and final checks</h1>
+  <p class="lede">Everything you need is in the brand folder. Run through the checklist before anything goes out the door.</p>
+  <div class="grid" style="grid-template-columns:1.15fr 1fr;gap:10mm">
+    <div>
+      <h3>What's in the brand folder</h3>
+      <table>
+        <tr><th style="width:74mm">File</th><th>Use it for</th></tr>
+        <tr><td class="mono">logos/amplify-schools-logo-colour.png</td><td>Documents, slides, email and social media</td></tr>
+        <tr><td class="mono">logos/amplify-schools-logo-colour.svg</td><td>Website, printers and designers</td></tr>
+        <tr><td class="mono">logos/amplify-schools-logo-white.png</td><td>Navy, teal and dark photo backgrounds</td></tr>
+        <tr><td class="mono">logos/amplify-schools-logo-navy.png</td><td>One-colour printing</td></tr>
+        <tr><td class="mono">Amplify-Schools-Letterhead.docx</td><td>Letters, in Word or Google Docs</td></tr>
+        <tr><td class="mono">Amplify-Schools-Brand-Guidelines.pdf</td><td>This document</td></tr>
+      </table>
+      <p class="small" style="margin-top:4mm"><b>Fonts.</b> Archivo and Public Sans are free to download from fonts.google.com and free to use for any purpose. In Google Docs, find them under Fonts, then More fonts.</p>
+    </div>
+    <div>
+      <h3>Before you publish</h3>
+      <div class="card" style="padding:5mm">
+        <ul style="margin:0">
+          <li>Is our name written as "Amplify Schools"?</li>
+          <li>Is the logo an original file, unstretched, with clear space around it?</li>
+          <li>Are the colours our navy and teal, with plenty of white?</li>
+          <li>Does it read the way we'd say it out loud, in Australian English?</li>
+          <li>Do we have permission for every person in every photo?</li>
+          <li>Are the ABN and "Registered charity" shown where people expect them?</li>
+          <li style="margin-bottom:0">Have we avoided promising a tax deduction?</li>
+        </ul>
+      </div>
+      <p style="margin-top:5mm"><b>Not sure about something?</b> Ask before you publish: backstage@amplifyschools.org or 0482 693 230.</p>
+    </div>
+  </div>
+  <div class="foot"><span>Amplify Schools brand guidelines &nbsp;|&nbsp; Version 1.0, November 2026</span><span class="n"></span></div>
+</section>
+
+</body>
+</html>
