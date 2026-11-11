@@ -4,3 +4,9 @@ RewriteEngine On
 RewriteCond %{HTTPS} off [OR]
 RewriteCond %{HTTP_HOST} ^www\. [NC]
 RewriteRule ^ https://amplifyschools.org%{REQUEST_URI} [R=301,L]
+
+# Hostinger deploys the whole repository into public_html. Refuse files that
+# aren't part of the website so search engines never index them.
+# (Leaves /.well-known/ alone: it's used for SSL certificate renewals.)
+RewriteRule ^(README\.md|CNAME)$ - [F,L]
+RewriteRule (^|/)\.(git|claude)(/|$) - [F,L]
