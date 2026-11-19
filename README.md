@@ -52,8 +52,9 @@ donate.html         Donate page (donation widget, other ways to give, FAQ)
 register.html       School registration (application form + eligibility)
 contact.html        Contact page (general enquiry form)
 assets/css/styles.css   All styling (light + dark mode, responsive)
-assets/js/main.js       Navigation, copy buttons, registration and contact
-                        forms, REGISTER_FORM_ENDPOINT config
+assets/js/main.js       Navigation, donation options, copy buttons,
+                        registration and contact forms,
+                        REGISTER_FORM_ENDPOINT config
 assets/img/             Logo, photos (from the site's image collection),
                         the ACNC Registered Charity Tick and the donation
                         QR code (donate-qr.svg)
@@ -95,28 +96,36 @@ Notes for whoever edits the site are marked with `EDIT ME` comments in the HTML.
 
 ## Taking donations (Stripe)
 
-Online donations go through a Stripe donation link (a Stripe Payment Link) in Amplify Schools' Stripe account:
+Online donations go through Stripe Payment Links in Amplify Schools' Stripe account. Donors finish on Stripe's page, so card details never touch this site and there's no backend.
 
-`https://donate.stripe.com/9B66oH0Fj6sX7RsaFI5os00`
+Stripe can't receive an amount picked on this site, so every amount has its own link:
 
-- The **Donate now** button on `donate.html` is a plain link to it. Donors finish on Stripe's page, so card details never touch this site and there's no backend.
-- The QR code under the button (`assets/img/donate-qr.svg`) opens the same link, for people on a computer who'd rather pay on their phone. It's navy on white to match the site, and hidden on phones and tablets.
+| Donate card button | Stripe link |
+| --- | --- |
+| One-off $40 | `https://buy.stripe.com/28E5kDds56sXgnY0145os01` |
+| One-off $150 (selected by default) | `https://buy.stripe.com/aFa14ngEh5oT0p0eVY5os02` |
+| One-off $500 | `https://buy.stripe.com/cNi28r73H6sX7RscNQ5os03` |
+| One-off Other (donor types the amount on Stripe) | `https://donate.stripe.com/9B66oH0Fj6sX7RsaFI5os00` |
+| Monthly $20 (selected by default) | `https://buy.stripe.com/5kQ6oH1Jn18D3Bcg025os04` |
+| Monthly $50 | `https://buy.stripe.com/eVqaEXco15oT0p029c5os05` |
 
-If the link changes, update the button's `href` in `donate.html`, then regenerate the QR code from the repository folder:
+- Each amount button in `donate.html` holds its link in `data-link`. The script in `main.js` points the **Donate** button at the chosen one, so to change an amount, edit the button's text and its `data-link`. To add one, copy a button.
+- The "Other" link is also the **Donate** button's `href` (used if JavaScript doesn't run) and the QR code under the button (`assets/img/donate-qr.svg`), for people on a computer who'd rather pay on their phone. The QR code is navy on white to match the site, and hidden on phones and tablets.
+- Stripe's "Customers choose what to pay" links can't be monthly, so monthly gifts have fixed amounts only.
+
+If the "Other" link changes, update it in all three places, then regenerate the QR code from the repository folder:
 
 ```bash
 npx qrcode -t svg -e M -q 4 -d 1c3e66 -l ffffff -o assets/img/donate-qr.svg "NEW-LINK-HERE"
 ```
 
-Check these in the Stripe dashboard, because the donate page relies on them:
+Check these in the Stripe dashboard, because the donate page relies on them. Most are set per link, so check every link:
 
-- **Tax receipts.** Donors are told they get tax-deductible receipts by email. The ATO requires each receipt to show the organisation's name, its ABN and that the payment is a gift. Stripe's standard receipt doesn't add the ABN or gift wording on its own; one way is to turn on **Create an invoice PDF** under **After payment** on the link and put the ABN and gift wording in the invoice template.
-- **$2 minimum.** Gifts of money are only deductible from $2.
+- **Tax receipts.** Donors are told they get tax-deductible receipts by email. The ATO requires each receipt to show the organisation's name, its ABN and that the payment is a gift. Stripe's standard receipt email doesn't include the ABN or gift wording; one way is to turn on **Create an invoice PDF** under **After payment** on each one-off link, and put the ABN and gift wording in the invoice settings (monthly gifts get invoices automatically).
+- **Product names** show on the payment page and the receipt, so use something like "Amplify Schools Charitable Donation".
+- **$2 minimum** on the "Other" link. Gifts of money are only deductible from $2.
 - **Payouts** go to the Amplify Schools Gift Fund account listed on the donate page, so card and bank donations end up in the same place.
-
-### Preset amounts and monthly giving
-
-Stripe can't receive an amount picked on this site, so preset amounts (such as the homepage's $40 / $150 / $500 tiers) or monthly giving each need their own Stripe link, plus buttons on the donate card to choose between them. Stripe's "Customers choose what to pay" links can't be monthly, so monthly gifts need fixed amounts.
+- **Monthly donations** are cancelled or changed by Amplify Schools in the Stripe dashboard when a donor asks; the donate page FAQ tells donors to contact us.
 
 ### A note on compliance
 

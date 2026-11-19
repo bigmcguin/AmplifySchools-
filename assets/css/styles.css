@@ -444,6 +444,46 @@ p { margin: 0 0 1em; max-width: 65ch; }
 
 .donate-card h2 { font-size: 1.35rem; margin-bottom: 1rem; }
 
+/* Frequency and amount choices need JavaScript (main.js), so they only
+   show when it runs; otherwise Donate opens the choose-your-amount link. */
+.donate-options { display: none; }
+.js .donate-options { display: block; }
+
+.freq-toggle {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+  border: 1.5px solid var(--line); border-radius: 999px; overflow: hidden;
+  margin-bottom: 1.4rem;
+}
+.freq-toggle button {
+  font: inherit; font-family: var(--font-display); font-weight: 650;
+  padding: 0.65rem 1rem; border: 0; background: transparent; color: var(--ink-soft);
+  cursor: pointer; transition: background 0.15s ease, color 0.15s ease;
+}
+.freq-toggle button[aria-pressed="true"] { background: var(--accent); color: var(--accent-ink); }
+
+/* One row of equal buttons, however many amounts a frequency has */
+.amount-grid {
+  display: grid; grid-auto-flow: column; grid-auto-columns: 1fr;
+  gap: 0.7rem; margin-bottom: 1.4rem;
+}
+.amount-grid[hidden] { display: none; }
+.amount-grid button {
+  font: inherit; font-family: var(--font-display); font-weight: 700; font-size: 1.15rem;
+  padding: 0.85rem 0.5rem; cursor: pointer;
+  border: 1.5px solid var(--line); border-radius: var(--radius-sm);
+  background: transparent; color: var(--ink);
+  transition: border-color 0.15s ease, background 0.15s ease, transform 0.1s ease;
+}
+.amount-grid button:hover { border-color: var(--accent); }
+.amount-grid button:active { transform: scale(0.98); }
+.amount-grid button[aria-pressed="true"] {
+  border-color: var(--accent); background: var(--accent-tint); color: var(--accent);
+}
+@media (max-width: 480px) {
+  .amount-grid { grid-auto-flow: row; grid-template-columns: repeat(2, 1fr); }
+}
+.amount-hint { font-size: 0.88rem; color: var(--ink-soft); margin: -0.6rem 0 1.2rem; }
+
 .donate-submit { width: 100%; }
 .donate-note {
   display: flex; gap: 0.5rem; align-items: flex-start;
