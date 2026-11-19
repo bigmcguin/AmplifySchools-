@@ -2,9 +2,6 @@
    Amplify Schools - site scripts
    ============================================================ */
 
-/* Donations: the Donate button on donate.html is a plain link to our
-   Stripe donation page, so it needs no script. See README.md. */
-
 /* ------------------------------------------------------------
    SCHOOL REGISTRATION FORM SETUP
    ------------------------------------------------------------
@@ -62,6 +59,49 @@ if (revealEls.length && !reduceMotion.matches && "IntersectionObserver" in windo
 document.querySelectorAll("#year").forEach((el) => {
   el.textContent = String(new Date().getFullYear());
 });
+
+/* ---------- Donation options (donate.html only) ---------- */
+/* Stripe can't receive an amount chosen on this site, so every amount
+   button carries its own Stripe Payment Link in data-link (set in
+   donate.html). Choosing a frequency and amount points the Donate
+   button at that link. Without JavaScript the options stay hidden and
+   Donate opens the choose-your-own-amount link. See README.md. */
+const donateLink = document.getElementById("donate-link");
+if (donateLink) {
+  const freqButtons = document.querySelectorAll(".freq-toggle button");
+  const amountGrids = document.querySelectorAll(".amount-grid");
+  const amountHint = document.getElementById("amount-hint");
+
+  function selectAmount(btn) {
+    const grid = btn.closest(".amount-grid");
+    grid.querySelectorAll("button").forEach((b) => b.setAttribute("aria-pressed", String(b === btn)));
+    const isOther = "other" in btn.dataset;
+    const perMonth = grid.dataset.freq === "monthly" ? " a month" : "";
+    donateLink.href = btn.dataset.link;
+    donateLink.textContent = isOther ? "Donate" : `Donate ${btn.textContent.trim()}${perMonth}`;
+    if (amountHint) amountHint.hidden = !isOther;
+  }
+
+  function showFrequency(freq) {
+    freqButtons.forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.freq === freq)));
+    amountGrids.forEach((grid) => { grid.hidden = grid.dataset.freq !== freq; });
+    // keep each frequency's last choice when switching back and forth
+    const grid = document.querySelector(`.amount-grid[data-freq="${freq}"]`);
+    selectAmount(grid.querySelector('[aria-pressed="true"]') || grid.querySelector("button"));
+  }
+
+  freqButtons.forEach((btn) => {
+    btn.addEventListener("click", () => showFrequency(btn.dataset.freq));
+  });
+  amountGrids.forEach((grid) => {
+    grid.addEventListener("click", (event) => {
+      const btn = event.target.closest("button");
+      if (btn) selectAmount(btn);
+    });
+  });
+
+  showFrequency("once");
+}
 
 /* ---------- Copy bank details (donate.html only) ---------- */
 document.querySelectorAll(".copy-btn").forEach((btn) => {

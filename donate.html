@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="format-detection" content="telephone=no">
   <title>Donate | Amplify Schools</title>
-  <meta name="description" content="Donate to Amplify Schools online or by bank transfer, or give an instrument. Donations of $2 or more are tax deductible.">
+  <meta name="description" content="Give once or monthly to Amplify Schools, online or by bank transfer, or donate an instrument. Donations of $2 or more are tax deductible.">
   <link rel="canonical" href="https://amplifyschools.org/donate.html">
   <meta property="og:title" content="Donate to Amplify Schools">
   <meta property="og:description" content="Give money or instruments. Both change a school music room.">
@@ -19,7 +19,7 @@
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <link rel="preload" href="assets/fonts/archivo-latin-wght-italic.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/public-sans-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="assets/css/styles.css?v=16">
+  <link rel="stylesheet" href="assets/css/styles.css?v=17">
   <script>document.documentElement.classList.add("js");</script>
 </head>
 <body>
@@ -50,19 +50,42 @@
 
     <section class="donate-intro container">
       <h1>Back a school music program.</h1>
-      <p class="lede">Your donation funds the refurbishment and delivery of rock instruments to schools. Donations of $2 or more are tax deductible.</p>
+      <p class="lede">Your donation funds the refurbishment and delivery of rock instruments to schools. Give once, or give monthly to keep the workshop running all year. Donations of $2 or more are tax deductible.</p>
     </section>
 
     <section class="section container donate-layout">
 
       <!-- ===== Donate online (Stripe) ===== -->
-      <!-- EDIT ME: the Donate button and the QR code both open our Stripe donation link.
-           If the link changes, update the href below and regenerate
-           assets/img/donate-qr.svg (see "Taking donations" in README.md). -->
+      <!-- EDIT ME: every amount button opens its own Stripe Payment Link, set in its
+           data-link. "Other" opens the link where donors choose their own amount;
+           the Donate button's href and the QR code use that link too, so if it
+           changes, update all three and regenerate assets/img/donate-qr.svg.
+           See "Taking donations" in README.md. -->
       <div class="donate-card">
         <h2>Give online</h2>
 
-        <a class="btn btn-primary btn-lg donate-submit" href="https://donate.stripe.com/9B66oH0Fj6sX7RsaFI5os00">Donate now</a>
+        <div class="donate-options">
+          <div class="freq-toggle" role="group" aria-label="Donation frequency">
+            <button type="button" data-freq="once" aria-pressed="true">One-off</button>
+            <button type="button" data-freq="monthly" aria-pressed="false">Monthly</button>
+          </div>
+
+          <div class="amount-grid" data-freq="once" role="group" aria-label="One-off amount">
+            <button type="button" aria-pressed="false" data-link="https://buy.stripe.com/28E5kDds56sXgnY0145os01">$40</button>
+            <button type="button" aria-pressed="true" data-link="https://buy.stripe.com/aFa14ngEh5oT0p0eVY5os02">$150</button>
+            <button type="button" aria-pressed="false" data-link="https://buy.stripe.com/cNi28r73H6sX7RscNQ5os03">$500</button>
+            <button type="button" aria-pressed="false" data-link="https://donate.stripe.com/9B66oH0Fj6sX7RsaFI5os00" data-other>Other</button>
+          </div>
+
+          <div class="amount-grid" data-freq="monthly" role="group" aria-label="Monthly amount" hidden>
+            <button type="button" aria-pressed="true" data-link="https://buy.stripe.com/5kQ6oH1Jn18D3Bcg025os04">$20</button>
+            <button type="button" aria-pressed="false" data-link="https://buy.stripe.com/eVqaEXco15oT0p029c5os05">$50</button>
+          </div>
+
+          <p class="amount-hint" id="amount-hint" hidden>You'll enter your amount on the next page.</p>
+        </div>
+
+        <a class="btn btn-primary btn-lg donate-submit" id="donate-link" href="https://donate.stripe.com/9B66oH0Fj6sX7RsaFI5os00">Donate</a>
 
         <p class="donate-note">
           <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#icon-lock-simple"/></svg>
@@ -73,7 +96,7 @@
           <img src="assets/img/donate-qr.svg" alt="QR code for our donation page" width="128" height="128">
           <figcaption>
             <strong>Prefer to use your phone?</strong>
-            Scan this code with your camera to open the same donation page.
+            Scan this code with your camera to make a one-off donation of any amount.
           </figcaption>
         </figure>
 
@@ -133,6 +156,10 @@
           <p>Money goes into parts, strings, hardware and workshop time to refurbish donated instruments, and into delivering them to school music programs. We keep overheads low so your gift lands in a music room.</p>
         </details>
         <details>
+          <summary>Can I cancel or change a monthly donation? <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#icon-caret-down"/></svg></summary>
+          <p>Yes, at any time. <a href="contact.html">Contact us</a> and we will change or cancel it for you straight away.</p>
+        </details>
+        <details>
           <summary>Will I get a receipt? <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#icon-caret-down"/></svg></summary>
           <p>Yes. Online donations are receipted by email as soon as the payment goes through. For bank transfers, include your name as the payment reference and email us so we know where to send your receipt.</p>
         </details>
@@ -186,6 +213,6 @@
     </div>
   </footer>
 
-  <script src="assets/js/main.js?v=14"></script>
+  <script src="assets/js/main.js?v=15"></script>
 </body>
 </html>
