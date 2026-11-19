@@ -442,47 +442,7 @@ p { margin: 0 0 1em; max-width: 65ch; }
   padding: clamp(1.4rem, 3vw, 2.2rem);
 }
 
-.freq-toggle {
-  display: grid; grid-template-columns: 1fr 1fr; gap: 0;
-  border: 1.5px solid var(--line); border-radius: 999px; overflow: hidden;
-  margin-bottom: 1.4rem;
-}
-.freq-toggle button {
-  font: inherit; font-family: var(--font-display); font-weight: 650;
-  padding: 0.65rem 1rem; border: 0; background: transparent; color: var(--ink-soft);
-  cursor: pointer; transition: background 0.15s ease, color 0.15s ease;
-}
-.freq-toggle button[aria-pressed="true"] { background: var(--accent); color: var(--accent-ink); }
-
-.amount-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.7rem; margin-bottom: 1rem; }
-.amount-grid button {
-  font: inherit; font-family: var(--font-display); font-weight: 700; font-size: 1.15rem;
-  padding: 0.85rem 0.5rem; cursor: pointer;
-  border: 1.5px solid var(--line); border-radius: var(--radius-sm);
-  background: transparent; color: var(--ink);
-  transition: border-color 0.15s ease, background 0.15s ease, transform 0.1s ease;
-}
-.amount-grid button:hover { border-color: var(--accent); }
-.amount-grid button:active { transform: scale(0.98); }
-.amount-grid button[aria-pressed="true"] {
-  border-color: var(--accent); background: var(--accent-tint); color: var(--accent);
-}
-@media (max-width: 480px) { .amount-grid { grid-template-columns: repeat(2, 1fr); } }
-
-.custom-amount { margin-bottom: 1.4rem; }
-.custom-amount label { display: block; font-weight: 600; font-size: 0.92rem; margin-bottom: 0.4rem; }
-.custom-amount .field {
-  display: flex; align-items: center; gap: 0.5rem;
-  border: 1.5px solid var(--line); border-radius: var(--radius-sm);
-  padding: 0 0.9rem; background: var(--bg);
-}
-.custom-amount .field:focus-within { border-color: var(--focus); }
-.custom-amount .currency { color: var(--ink-soft); font-weight: 600; }
-.custom-amount input {
-  font: inherit; font-size: 1.1rem; border: 0; background: transparent; color: var(--ink);
-  padding: 0.75rem 0; width: 100%; outline: none;
-}
-.custom-amount .hint { font-size: 0.85rem; color: var(--ink-soft); margin: 0.4rem 0 0; }
+.donate-card h2 { font-size: 1.35rem; margin-bottom: 1rem; }
 
 .donate-submit { width: 100%; }
 .donate-note {
@@ -491,13 +451,25 @@ p { margin: 0 0 1em; max-width: 65ch; }
 }
 .donate-note .icon { margin-top: 0.15em; }
 
-.donate-alert {
-  display: none; margin-top: 1rem; padding: 0.9rem 1.1rem;
-  border: 1.5px solid var(--accent); border-radius: var(--radius-sm);
-  background: var(--accent-tint); color: var(--ink); font-size: 0.95rem;
+/* QR code that opens the same Stripe donation page, for people on a
+   computer who'd rather pay on their phone. Laid out like the
+   charity note below it. Navy on a white tile in both colour schemes,
+   because many scanners can't read light-on-dark codes. Hidden on
+   touch devices (and narrow screens, in case a phone browser misreports
+   touch): you can't scan the screen you're holding. */
+.donate-qr {
+  display: flex; align-items: center; gap: 1.25rem;
+  margin: 1.4rem 0 0; padding-top: 1.4rem; border-top: 1px solid var(--line);
+  color: var(--ink-soft); font-size: 0.92rem; line-height: 1.5;
 }
-.donate-alert.show { display: block; }
-.donate-alert a { font-weight: 600; }
+.donate-qr img {
+  flex: none; width: 128px; height: 128px;
+  border: 1px solid var(--line); border-radius: var(--radius-sm);
+}
+.donate-qr strong { display: block; color: var(--ink); font-weight: 650; }
+@media (hover: none) and (pointer: coarse), (max-width: 600px) {
+  .donate-qr { display: none; }
+}
 
 .give-aside h2 { font-size: 1.35rem; }
 .give-item { padding: 1.2rem 0; }

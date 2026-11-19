@@ -42,7 +42,7 @@ Rules from the ACNC's Registered Charity Tick style guide and terms of use:
 - Link it to the charity's Charity Register listing.
 - Only use it while Amplify Schools stays registered.
 
-Charity registration is separate from DGR (Deductible Gift Recipient) endorsement by the ATO. Keep the "not tax deductible" wording on the donate page until DGR status is granted.
+Charity registration (ACNC) is separate from DGR (Deductible Gift Recipient) endorsement by the ATO. Amplify Schools has both, so the donate page says donations are tax deductible.
 
 ## Structure
 
@@ -52,10 +52,11 @@ donate.html         Donate page (donation widget, other ways to give, FAQ)
 register.html       School registration (application form + eligibility)
 contact.html        Contact page (general enquiry form)
 assets/css/styles.css   All styling (light + dark mode, responsive)
-assets/js/main.js       Navigation, donation widget, registration form,
-                        PAYMENT_LINKS and REGISTER_FORM_ENDPOINT config
-assets/img/             Logo, photos (from the site's image collection) and
-                        the ACNC Registered Charity Tick
+assets/js/main.js       Navigation, copy buttons, registration and contact
+                        forms, REGISTER_FORM_ENDPOINT config
+assets/img/             Logo, photos (from the site's image collection),
+                        the ACNC Registered Charity Tick and the donation
+                        QR code (donate-qr.svg)
 assets/fonts/           Self-hosted fonts (Archivo + Public Sans)
 assets/icons.svg        Icon sprite (Phosphor Icons, MIT licence)
 favicon.ico, favicon.svg, apple-touch-icon.png   Site icons
@@ -89,35 +90,33 @@ Notes for whoever edits the site are marked with `EDIT ME` comments in the HTML.
 1. **Donation tiers**: keep the $40 / $150 / $500 amounts and descriptions in line with real refurbishment costs.
 2. **Mission copy** in the "Why we exist" section: keep it in line with the charity's official wording.
 3. **Social links**: Instagram ([@amplifyschools](https://www.instagram.com/amplifyschools/)) and [LinkedIn](https://www.linkedin.com/company/amplify-schools/) are in every page footer and in `sameAs` in the homepage JSON-LD. Add any new profiles in both places.
-4. **Tax deductibility FAQ**: update the answer on the donate page once the ATO grants DGR (Deductible Gift Recipient) status. Only DGR-endorsed organisations can offer tax-deductible receipts in Australia.
+4. **Tax deductibility**: Amplify Schools has DGR (Deductible Gift Recipient) status, and the "Is my donation tax deductible?" FAQ on the donate page says so. Gifts of money are only deductible from $2, so keep the minimum on the Stripe donation link at $2 or more. Every tax receipt, including Stripe's emailed receipts, must show the organisation's name, its ABN and that the payment is a gift.
 5. **Photo permissions**: make sure you have permission to publish each photo, especially images featuring school staff and students.
 
-## Taking donations: how to wire up payments
+## Taking donations (Stripe)
 
-The donate button is already built. It reads hosted payment page URLs from `PAYMENT_LINKS` at the top of `assets/js/main.js`. Until you paste links in, donors are shown the bank transfer details instead, so nothing is broken in the meantime.
+Online donations go through a Stripe donation link (a Stripe Payment Link) in Amplify Schools' Stripe account:
 
-### Option A (recommended): Stripe Payment Links
+`https://donate.stripe.com/9B66oH0Fj6sX7RsaFI5os00`
 
-No code and no monthly fee; Stripe takes about 1.7% + $0.30 per domestic card transaction. Supports Apple Pay, Google Pay and recurring monthly donations, and emails receipts automatically.
+- The **Donate now** button on `donate.html` is a plain link to it. Donors finish on Stripe's page, so card details never touch this site and there's no backend.
+- The QR code under the button (`assets/img/donate-qr.svg`) opens the same link, for people on a computer who'd rather pay on their phone. It's navy on white to match the site, and hidden on phones and tablets.
 
-1. Create an account at [stripe.com/au](https://stripe.com/au) (registered charities can apply for discounted nonprofit pricing via Stripe support).
-2. In the dashboard, go to **Payment Links → New**.
-3. Create links for each preset ($40, $150, $500), one set as one-off and one set as a monthly recurring price. Also create one "Customers choose what to pay" link per frequency for custom amounts.
-4. Paste the URLs into `PAYMENT_LINKS` in `assets/js/main.js`.
+If the link changes, update the button's `href` in `donate.html`, then regenerate the QR code from the repository folder:
 
-### Option B: PayPal Donations
+```bash
+npx qrcode -t svg -e M -q 4 -d 1c3e66 -l ffffff -o assets/img/donate-qr.svg "NEW-LINK-HERE"
+```
 
-Set up at [paypal.com/au/non-profit](https://www.paypal.com/au/non-profit) and paste your hosted donate URL into the `any` fields. Confirmed charities pay a discounted rate. Familiar to many donors, but the checkout experience is weaker than Stripe's.
+Check these in the Stripe dashboard, because the donate page relies on them:
 
-### Option C: Australian fundraising platforms
+- **Tax receipts.** Donors are told they get tax-deductible receipts by email. The ATO requires each receipt to show the organisation's name, its ABN and that the payment is a gift. Stripe's standard receipt doesn't add the ABN or gift wording on its own; one way is to turn on **Create an invoice PDF** under **After payment** on the link and put the ABN and gift wording in the invoice template.
+- **$2 minimum.** Gifts of money are only deductible from $2.
+- **Payouts** go to the Amplify Schools Gift Fund account listed on the donate page, so card and bank donations end up in the same place.
 
-If you want donor management, appeals and tax receipts handled for you:
+### Preset amounts and monthly giving
 
-- **GiveNow** (givenow.com.au): low flat fee, built for Australian community groups.
-- **Raisely** (raisely.com): free platform (donors cover processing fees), great for campaigns and peer-to-peer fundraising.
-- **Grassrootz** (grassrootz.com): popular for events and appeals.
-
-All of these give you a hosted donation page URL: paste it into the `any` fields in `PAYMENT_LINKS` and the donate button will send people there.
+Stripe can't receive an amount picked on this site, so preset amounts (such as the homepage's $40 / $150 / $500 tiers) or monthly giving each need their own Stripe link, plus buttons on the donate card to choose between them. Stripe's "Customers choose what to pay" links can't be monthly, so monthly gifts need fixed amounts.
 
 ### A note on compliance
 
