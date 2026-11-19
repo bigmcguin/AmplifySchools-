@@ -42,7 +42,7 @@ Rules from the ACNC's Registered Charity Tick style guide and terms of use:
 - Link it to the charity's Charity Register listing.
 - Only use it while Amplify Schools stays registered.
 
-Charity registration is separate from DGR (Deductible Gift Recipient) endorsement by the ATO. Keep the "not tax deductible" wording on the donate page until DGR status is granted.
+Charity registration (ACNC) is separate from DGR (Deductible Gift Recipient) endorsement by the ATO. Amplify Schools has both, so the donate page says donations are tax deductible.
 
 ## Structure
 
@@ -89,7 +89,7 @@ Notes for whoever edits the site are marked with `EDIT ME` comments in the HTML.
 1. **Donation tiers**: keep the $40 / $150 / $500 amounts and descriptions in line with real refurbishment costs.
 2. **Mission copy** in the "Why we exist" section: keep it in line with the charity's official wording.
 3. **Social links**: Instagram ([@amplifyschools](https://www.instagram.com/amplifyschools/)) and [LinkedIn](https://www.linkedin.com/company/amplify-schools/) are in every page footer and in `sameAs` in the homepage JSON-LD. Add any new profiles in both places.
-4. **Tax deductibility FAQ**: update the answer on the donate page once the ATO grants DGR (Deductible Gift Recipient) status. Only DGR-endorsed organisations can offer tax-deductible receipts in Australia.
+4. **Tax deductibility**: Amplify Schools has DGR (Deductible Gift Recipient) status, and the "Is my donation tax deductible?" FAQ on the donate page says so. Gifts of money are only deductible from $2, so keep the minimum online donation at $2 or more. Every tax receipt, including emailed card receipts, must show the organisation's name, its ABN and that the payment is a gift.
 5. **Photo permissions**: make sure you have permission to publish each photo, especially images featuring school staff and students.
 
 ## Taking donations: how to wire up payments
